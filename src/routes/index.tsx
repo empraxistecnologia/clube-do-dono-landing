@@ -45,6 +45,7 @@ function Index() {
         <FinalCta />
       </main>
       <Footer />
+      <WhatsAppFab />
     </div>
   );
 }
