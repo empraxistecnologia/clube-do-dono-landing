@@ -223,15 +223,19 @@ export const plans = {
   ] as Plan[],
 };
 
+export const whatsappUrl =
+  "https://api.whatsapp.com/send/?phone=5566999177770&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+o+Clube+do+Dono.&type=phone_number&app_absent=0";
+
 export const education = {
   title: ["Seu próximo avanço", "também passa pelo conhecimento."],
-  text: "Aprimore sua prática com os cursos disponíveis e conheça as mentorias com condições especiais para membros.",
+  text: "Cursos e mentorias com descontos exclusivos para membros do Clube do Dono.",
   stamp: ["Aprender.", "Aplicar.", "Evoluir."],
   image: educationBw,
   links: [
     { label: "Explorar cursos", href: null as string | null },
     { label: "Conhecer mentorias", href: null as string | null },
   ],
+  whatsappLabel: "Falar no WhatsApp",
 };
 
 export const faq = {

@@ -1,5 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
-import { education } from "@/content/club";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { education, whatsappUrl } from "@/content/club";
 import { Reveal } from "./Reveal";
 
 export function Education() {
@@ -62,6 +62,16 @@ export function Education() {
                 ),
               )}
             </div>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gold px-6 py-3.5 text-[0.95rem] font-semibold text-ink transition-colors duration-300 hover:bg-ink hover:text-gold hover:ring-1 hover:ring-gold"
+            >
+              <MessageCircle className="h-4 w-4" />
+              {education.whatsappLabel}
+            </a>
           </Reveal>
         </div>
       </div>
