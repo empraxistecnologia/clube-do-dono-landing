@@ -58,7 +58,7 @@ export function Hero() {
             className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-ink to-transparent"
           />
 
-          <p className="display absolute top-6 left-5 max-w-[6.5rem] text-[0.72rem] leading-tight tracking-[0.14em] text-ivory/85 sm:left-8 lg:top-28">
+          <p className="display absolute top-28 left-5 hidden max-w-[6.5rem] text-[0.72rem] leading-tight tracking-[0.14em] text-ivory/85 sm:left-8 lg:block">
             {hero.sideNote.map((l) => (
               <span key={l} className="block">
                 {l}
