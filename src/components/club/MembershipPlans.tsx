@@ -1,27 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Check, Gift, X } from "lucide-react";
 import { plans, type Plan } from "@/content/club";
-import { Monogram } from "./Monogram";
 import { Reveal } from "./Reveal";
-
-const cardStyle: Record<Plan["id"], string> = {
-  silver: "card-silver",
-  gold: "card-gold",
-  diamond: "card-diamond",
-};
-
-function MemberCard({ plan }: { plan: Plan }) {
-  return (
-    <div className={`${cardStyle[plan.id]} sheen relative aspect-[16/10] w-full overflow-hidden rounded-md p-5`}>
-      <div className="absolute inset-2 rounded-sm border border-current opacity-25" aria-hidden="true" />
-      <div className="relative flex h-full flex-col items-center justify-center gap-2">
-        <Monogram className="h-10 w-10 opacity-80" />
-        <p className="display text-xl tracking-[0.18em]">{plan.name}</p>
-        <p className="text-[0.6rem] tracking-[0.3em] uppercase opacity-70">Clube do Dono</p>
-      </div>
-    </div>
-  );
-}
 
 function PlanDialog({ plan, onClose }: { plan: Plan; onClose: () => void }) {
   useEffect(() => {
