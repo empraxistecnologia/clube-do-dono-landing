@@ -123,9 +123,12 @@ export function VideoGallery() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [paused, setPaused] = useState(false);
   const [index, setIndex] = useState(0);
+  const [perView, setPerView] = useState(3);
   const els = useRef<Record<string, HTMLVideoElement | null>>({});
   const track = useRef<HTMLDivElement>(null);
   const items = videos.items;
+  const pages = Math.max(1, Math.ceil(items.length / perView));
+  const page = Math.min(pages - 1, Math.floor(index / perView));
 
   const registerVideo = (id: string, el: HTMLVideoElement | null) => {
     els.current[id] = el;
@@ -147,11 +150,17 @@ export function VideoGallery() {
     setPaused(true);
   };
 
-  // índice visível a partir do scroll; pausa vídeo que saiu de vista
+  // índice visível e quantidade por página a partir do scroll
   useEffect(() => {
     const el = track.current;
     if (!el) return;
     let raf = 0;
+    const measure = () => {
+      const first = el.children[0] as HTMLElement | undefined;
+      if (first?.offsetWidth) {
+        setPerView(Math.max(1, Math.round(el.clientWidth / first.offsetWidth)));
+      }
+    };
     const onScroll = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
@@ -169,45 +178,36 @@ export function VideoGallery() {
         setIndex(best);
       });
     };
+    measure();
     el.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", measure);
     return () => {
       el.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", measure);
       cancelAnimationFrame(raf);
     };
   }, []);
 
   useEffect(() => {
     if (!activeId) return;
-    const visible = items[index]?.id;
-    if (visible !== activeId) {
+    const visible = items.slice(index, index + perView).some((v) => v.id === activeId);
+    if (!visible) {
       els.current[activeId]?.pause();
       setActiveId(null);
     }
-  }, [index, activeId, items]);
+  }, [index, perView, activeId, items]);
 
-  // avanço automático
+  // avanço automático de página em página
   useEffect(() => {
     if (paused || activeId) return;
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => {
-      const el = track.current;
-      if (!el) return;
-      const perView = Math.max(1, Math.round(el.clientWidth / ((el.children[0] as HTMLElement)?.offsetWidth || 1)));
-      const last = Math.max(0, items.length - perView);
-      setIndex((i) => {
-        const next = i >= last ? 0 : i + 1;
-        goTo(next);
-        return next;
-      });
+      const next = ((page + 1) % pages) * perView;
+      setIndex(next);
+      goTo(next);
     }, AUTOPLAY_MS);
     return () => window.clearInterval(id);
-  }, [paused, activeId, goTo, items.length]);
-
-  const step = (dir: 1 | -1) => {
-    const next = Math.min(items.length - 1, Math.max(0, index + dir));
-    setIndex(next);
-    goTo(next);
-  };
+  }, [paused, activeId, goTo, page, pages, perView]);
 
   return (
     <section id="videos" className="bg-ink py-24 text-ivory sm:py-32">
@@ -248,54 +248,26 @@ export function VideoGallery() {
           </div>
         </div>
 
-        <div className="mt-8 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2" role="tablist" aria-label="Selecionar vídeo">
-            {items.map((v, i) => (
-              <button
-                key={v.id}
-                type="button"
-                role="tab"
-                aria-selected={i === index}
-                aria-label={`Ir para ${v.title}`}
-                onClick={() => {
-                  setIndex(i);
-                  goTo(i);
-                }}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === index ? "w-8 bg-gold" : "w-3 bg-ivory/25 hover:bg-ivory/45"
-                }`}
-              />
-            ))}
-          </div>
-
-          <div className="flex items-center gap-2">
+        <div className="mt-8 flex items-center justify-center gap-2">
+          {Array.from({ length: pages }).map((_, i) => (
             <button
+              key={i}
               type="button"
-              onClick={() => setPaused((p) => !p)}
-              aria-label={paused ? "Retomar avanço automático" : "Pausar avanço automático"}
-              className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory/70 transition-colors hover:border-gold hover:text-gold"
-            >
-              {paused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
-            </button>
-            <button
-              type="button"
-              onClick={() => step(-1)}
-              aria-label="Vídeo anterior"
-              className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory/70 transition-colors hover:border-gold hover:text-gold"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => step(1)}
-              aria-label="Próximo vídeo"
-              className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory/70 transition-colors hover:border-gold hover:text-gold"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
+              aria-label={`Ir para o grupo ${i + 1} de vídeos`}
+              aria-current={i === page}
+              onClick={() => {
+                const next = i * perView;
+                setIndex(next);
+                goTo(next);
+              }}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === page ? "w-8 bg-gold" : "w-3 bg-ivory/25 hover:bg-ivory/45"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
