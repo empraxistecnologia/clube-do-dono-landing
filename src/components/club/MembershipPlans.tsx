@@ -139,7 +139,7 @@ export function MembershipPlans() {
               {plan.featured && (
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -right-[62px] top-[26px] w-[210px] rotate-45 bg-gold py-1.5 text-center text-[0.6rem] font-semibold tracking-[0.18em] text-ink uppercase shadow-[0_8px_18px_-10px_rgba(0,0,0,0.9)]"
+                  className="pointer-events-none absolute -right-[74px] top-[30px] w-[230px] rotate-45 bg-gold py-1.5 text-center text-[0.58rem] font-semibold tracking-[0.1em] text-ink uppercase shadow-[0_8px_18px_-10px_rgba(0,0,0,0.9)]"
                 >
                   {plan.tagline}
                 </span>
