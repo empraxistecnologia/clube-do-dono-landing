@@ -10,6 +10,7 @@ import { Education } from "@/components/club/Education";
 import { FAQ } from "@/components/club/FAQ";
 import { FinalCta } from "@/components/club/FinalCta";
 import { Footer } from "@/components/club/Footer";
+import { WhatsAppFab } from "@/components/club/WhatsAppFab";
 
 const title = "Clube do Dono — Clube de benefícios para barbeiros";
 const description =
