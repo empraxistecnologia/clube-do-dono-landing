@@ -166,7 +166,7 @@ export type Plan = {
 export const plans = {
   title: ["Seu talento.", "Seu negócio.", "Seu plano."],
   text: "Compare as opções e escolha como fazer parte do Clube do Dono.",
-  note: "Consulte as regras, os benefícios e a disponibilidade de cada plano. Os produtos do catálogo são adquiridos à parte, conforme as condições informadas na oferta.",
+  note: "Consulte as regras, os benefícios e a disponibilidade de cada plano antes de contratar.",
   aside: ["Mesma paixão", "Mais possibilidades"],
   asideRight: ["Barbeiros", "Donos de barbearia", "Uma comunidade real"],
   items: [

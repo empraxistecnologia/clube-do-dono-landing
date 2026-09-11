@@ -4,18 +4,18 @@ import { Reveal } from "./Reveal";
 
 export function ClubBenefits() {
   return (
-    <section id="o-clube" className="relative overflow-hidden bg-background py-20 sm:py-28">
+    <section id="o-clube" className="relative bg-background py-24 sm:py-32">
       <Monogram
         aria-hidden="true"
-        className="pointer-events-none absolute -left-16 top-16 h-64 w-64 text-ink/[0.05] sm:h-80 sm:w-80"
+        className="pointer-events-none absolute top-16 -left-20 h-72 w-72 text-ink/[0.05] sm:h-96 sm:w-96"
       />
 
-      <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
-        <p className="eyebrow text-muted-foreground">01 &nbsp;/&nbsp; O clube</p>
+      <div className="shell relative">
+        <p className="eyebrow border-b border-border pb-4 text-muted-foreground">01 &nbsp;/&nbsp; O clube</p>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
           <Reveal>
-            <h2 className="max-w-xl text-[clamp(1.75rem,4.4vw,2.75rem)] leading-[1.12] font-semibold tracking-tight">
+            <h2 className="max-w-[20ch] text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.1] font-semibold tracking-tight">
               {clubIntro.title.map((l) => (
                 <span key={l} className="block">
                   {l}
@@ -24,16 +24,18 @@ export function ClubBenefits() {
             </h2>
           </Reveal>
           <Reveal delay={100}>
-            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground lg:pt-2">{clubIntro.text}</p>
+            <p className="max-w-[48ch] text-[1.0625rem] leading-relaxed text-muted-foreground lg:pt-3">
+              {clubIntro.text}
+            </p>
           </Reveal>
         </div>
 
-        <ul className="mt-16 grid gap-px border-t border-border sm:grid-cols-3">
+        <ul className="mt-20 grid gap-10 border-t border-border sm:grid-cols-3 sm:gap-8">
           {clubIntro.pillars.map((p, i) => (
-            <Reveal as="li" key={p.number} delay={i * 90} className="pt-8 sm:pr-8">
-              <p className="font-serif text-2xl italic text-gold">{p.number}</p>
-              <h3 className="mt-4 text-[0.95rem] font-semibold">{p.title}</h3>
-              <p className="mt-2 max-w-[26ch] text-[0.82rem] leading-relaxed text-muted-foreground">{p.text}</p>
+            <Reveal as="li" key={p.number} delay={i * 90} className="pt-10 sm:pr-10">
+              <p className="font-serif text-3xl italic text-gold">{p.number}</p>
+              <h3 className="mt-5 text-[1.15rem] font-semibold">{p.title}</h3>
+              <p className="mt-3 max-w-[32ch] text-[1rem] leading-relaxed text-muted-foreground">{p.text}</p>
             </Reveal>
           ))}
         </ul>
