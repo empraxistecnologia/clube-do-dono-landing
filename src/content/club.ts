@@ -7,7 +7,7 @@ import educationBw from "@/assets/education-bw.jpg";
 /**
  * Conteúdo central da landing page do Clube do Dono.
  * Edite tudo aqui: textos, vídeos, produtos, planos e links.
- * `null` = pendente de conteúdo real (a UI trata a ausência com elegância).
+ * `null` = pendente de conteúdo real (a UI trata a ausência com honestidade).
  */
 
 export type PlanId = "silver" | "gold" | "diamond";
@@ -29,55 +29,62 @@ export const nav = [
 export const loginUrl: string | null = null;
 
 export const hero = {
-  eyebrow: "Clube de benefícios para barbeiros",
-  titleLines: ["Talento na", "cadeira.", "Visão de"],
+  eyebrow: "Clube de benefícios para barbeiros e donos de barbearia",
+  titleLines: ["Talento na cadeira.", "Visão de"],
   titleAccent: "Dono.",
-  text: "Você é dono do seu talento. Faça parte de uma comunidade com descontos em produtos e vantagens para o seu negócio.",
-  primaryCta: { label: "Quero conhecer os planos", href: "#planos" },
-  secondaryCta: { label: "Veja como funciona", href: "#videos" },
+  text: "Seu talento faz a diferença em cada atendimento. No Clube do Dono, você encontra descontos em produtos, oportunidades para aprender e vantagens para cuidar também do seu negócio.",
+  primaryCta: { label: "Conhecer os planos", href: "#planos" },
+  secondaryCta: { label: "Ver como o clube funciona", href: "#videos" },
+  support: "Benefícios para o profissional. Vantagens para o negócio.",
   image: heroChair,
-  sideNote: ["Mais barbearias", "Mais histórias"],
   caption: ["Barbeiros", "Donos de barbearia", "Juntos mais fortes"],
 };
 
 export const clubIntro = {
-  title: ["Você cuida do talento.", "O clube amplia suas possibilidades."],
-  text: "Para barbeiros e donos de barbearia que querem comprar com desconto, desenvolver sua prática e fazer parte de uma comunidade profissional.",
+  title: ["Você domina o corte.", "Amplie suas possibilidades."],
+  text: "Quem vive da barbearia faz escolhas todos os dias: o que comprar, onde investir e como evoluir. O Clube do Dono reúne benefícios para apoiar essas escolhas e valorizar quem está à frente do próprio trabalho.",
   pillars: [
     {
       number: "01",
-      title: "Vantagens para comprar",
-      text: "Descontos em produtos conforme o plano escolhido.",
+      title: "Compre com vantagem",
+      text: "Acesse produtos com descontos e condições disponíveis no seu plano.",
     },
     {
       number: "02",
-      title: "Conhecimento para evoluir",
-      text: "Cursos disponíveis e condições especiais em mentorias.",
+      title: "Invista no seu talento",
+      text: "Explore cursos e conheça mentorias com condições especiais para membros.",
     },
     {
       number: "03",
-      title: "Uma comunidade com visão",
-      text: "Um clube para quem leva a profissão e o negócio a sério.",
+      title: "Faça parte do clube",
+      text: "Uma comunidade para barbeiros e donos de barbearia que levam a profissão e o negócio a sério.",
     },
   ],
 };
 
+export type VideoSource = "file" | "youtube" | "vimeo";
+
 export type ClubVideo = {
   id: string;
-  caption: string;
+  title: string;
   /** URL de MP4 ou de plataforma (YouTube/Vimeo). */
   url: string | null;
   /** Imagem de capa. */
   poster: string | null;
+  source: VideoSource | null;
 };
 
 export const videos = {
   title: ["Conheça o clube.", "Dê o play."],
-  text: "Entenda os benefícios e veja como fazer parte.",
+  text: "Veja os vídeos e entenda como aproveitar os benefícios do Clube do Dono.",
+  /** Seis posições configuráveis. Preencha url/poster/source quando os arquivos existirem. */
   items: [
-    { id: "v1", caption: "Conheça o clube", url: null, poster: null },
-    { id: "v2", caption: "Benefícios na prática", url: null, poster: null },
-    { id: "v3", caption: "Como fazer parte", url: null, poster: null },
+    { id: "v1", title: "Conheça o clube", url: null, poster: null, source: null },
+    { id: "v2", title: "Benefícios na prática", url: null, poster: null, source: null },
+    { id: "v3", title: "Como fazer parte", url: null, poster: null, source: null },
+    { id: "v4", title: "Produtos com desconto", url: null, poster: null, source: null },
+    { id: "v5", title: "Cursos e mentorias", url: null, poster: null, source: null },
+    { id: "v6", title: "Visão de dono", url: null, poster: null, source: null },
   ] as ClubVideo[],
 };
 
@@ -94,101 +101,52 @@ export type Product = {
   featured?: boolean;
 };
 
+const catalog: Product[] = [
+  {
+    id: "maquinas",
+    name: "Máquinas de corte",
+    category: "Equipamentos",
+    image: productClipper,
+    listPrice: null,
+    memberPrice: null,
+    href: null,
+    featured: true,
+  },
+  {
+    id: "pomadas",
+    name: "Pomadas e finalizadores",
+    category: "Cuidados",
+    image: productPomade,
+    listPrice: null,
+    memberPrice: null,
+    href: null,
+  },
+  {
+    id: "tesouras",
+    name: "Tesouras profissionais",
+    category: "Ferramentas",
+    image: productScissors,
+    listPrice: null,
+    memberPrice: null,
+    href: null,
+  },
+];
+
+const withPlan = (plan: PlanId): Product[] => catalog.map((p) => ({ ...p, id: `${plan}-${p.id}` }));
+
 export const products = {
   title: ["Quem é do clube", "compra com vantagem."],
-  text: "Explore os produtos e os descontos disponíveis em cada plano.",
-  cta: { label: "Ver produtos e descontos", href: null as string | null },
+  text: "Da reposição do dia a dia às ferramentas de trabalho: explore os produtos e confira as condições disponíveis em cada plano.",
+  cta: { label: "Explorar produtos e descontos", href: null as string | null },
+  planNote: {
+    silver: "Condições do plano Silver.",
+    gold: "Condições do plano Gold.",
+    diamond: "Condições do plano Diamond.",
+  } satisfies Record<PlanId, string>,
   byPlan: {
-    silver: [
-      {
-        id: "s1",
-        name: "Máquinas de corte",
-        category: "Equipamentos",
-        image: productClipper,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-        featured: true,
-      },
-      {
-        id: "s2",
-        name: "Pomadas e finalizadores",
-        category: "Cuidados",
-        image: productPomade,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-      },
-      {
-        id: "s3",
-        name: "Tesouras profissionais",
-        category: "Ferramentas",
-        image: productScissors,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-      },
-    ],
-    gold: [
-      {
-        id: "g1",
-        name: "Máquinas de corte",
-        category: "Equipamentos",
-        image: productClipper,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-        featured: true,
-      },
-      {
-        id: "g2",
-        name: "Pomadas e finalizadores",
-        category: "Cuidados",
-        image: productPomade,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-      },
-      {
-        id: "g3",
-        name: "Tesouras profissionais",
-        category: "Ferramentas",
-        image: productScissors,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-      },
-    ],
-    diamond: [
-      {
-        id: "d1",
-        name: "Máquinas de corte",
-        category: "Equipamentos",
-        image: productClipper,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-        featured: true,
-      },
-      {
-        id: "d2",
-        name: "Tesouras profissionais",
-        category: "Ferramentas",
-        image: productScissors,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-      },
-      {
-        id: "d3",
-        name: "Pomadas e finalizadores",
-        category: "Cuidados",
-        image: productPomade,
-        listPrice: null,
-        memberPrice: null,
-        href: null,
-      },
-    ],
+    silver: withPlan("silver"),
+    gold: withPlan("gold"),
+    diamond: withPlan("diamond"),
   } satisfies Record<PlanId, Product[]>,
 };
 
@@ -206,9 +164,9 @@ export type Plan = {
 };
 
 export const plans = {
-  title: ["Escolha como", "fazer parte."],
-  text: "Compare o acesso aos produtos e os benefícios de cada plano.",
-  note: "Consulte as regras, os benefícios e a disponibilidade de cada plano.",
+  title: ["Seu talento.", "Seu negócio.", "Seu plano."],
+  text: "Compare as opções e escolha como fazer parte do Clube do Dono.",
+  note: "Consulte as regras, os benefícios e a disponibilidade de cada plano. Os produtos do catálogo são adquiridos à parte, conforme as condições informadas na oferta.",
   aside: ["Mesma paixão", "Mais possibilidades"],
   asideRight: ["Barbeiros", "Donos de barbearia", "Uma comunidade real"],
   items: [
@@ -216,7 +174,7 @@ export const plans = {
       id: "silver",
       name: "Silver",
       limit: "50",
-      limitNote: "produtos/mês",
+      limitNote: "produtos/mês com condições do clube",
       price: "R$ 49,99",
       period: "/mês",
       benefits: ["Acesso ao catálogo com desconto", "Comunidade do clube"],
@@ -227,7 +185,7 @@ export const plans = {
       id: "gold",
       name: "Gold",
       limit: "100",
-      limitNote: "produtos/mês",
+      limitNote: "produtos/mês com condições do clube",
       price: "R$ 90,00",
       period: "/mês",
       benefits: [
@@ -242,7 +200,7 @@ export const plans = {
       id: "diamond",
       name: "Diamond",
       limit: "Produtos",
-      limitNote: "ilimitados",
+      limitNote: "ilimitados com condições do clube",
       price: "R$ 190,00",
       period: "/mês",
       benefits: [
@@ -258,35 +216,49 @@ export const plans = {
 };
 
 export const education = {
-  title: ["Seu talento também", "merece investimento."],
-  text: "Explore os cursos disponíveis e as mentorias com condições exclusivas para membros.",
+  title: ["Seu próximo avanço", "também passa pelo conhecimento."],
+  text: "Aprimore sua prática com os cursos disponíveis e conheça as mentorias com condições especiais para membros.",
   stamp: ["Aprender.", "Aplicar.", "Evoluir."],
   image: educationBw,
   links: [
-    { label: "Conhecer cursos", href: null as string | null },
-    { label: "Explorar mentorias", href: null as string | null },
+    { label: "Explorar cursos", href: null as string | null },
+    { label: "Conhecer mentorias", href: null as string | null },
   ],
 };
 
-/** Respostas ficam ocultas até que o conteúdo real seja confirmado. */
 export const faq = {
   title: ["Bom", "saber."],
   subtitle: "Tire suas dúvidas antes de entrar no clube.",
   items: [
-    { q: "O clube é para barbeiros ou donos de barbearia?", a: null as string | null },
-    { q: "Como funcionam os descontos?", a: null as string | null },
-    { q: "Qual a diferença entre os três planos?", a: null as string | null },
-    { q: "Como comprar depois de assinar?", a: null as string | null },
-    { q: "Como acessar cursos e mentorias?", a: null as string | null },
-  ],
+    {
+      q: "O Clube do Dono é para barbeiros ou donos de barbearia?",
+      a: "O clube é voltado tanto para barbeiros quanto para donos de barbearia que buscam vantagens na compra de produtos e oportunidades de desenvolvimento profissional. A proposta é reunir benefícios para quem trabalha na cadeira e para quem também cuida da gestão do negócio.",
+    },
+    {
+      q: "Quais benefícios encontro no clube?",
+      a: "O Clube do Dono reúne produtos com descontos para membros, cursos disponíveis e condições especiais em mentorias. Os benefícios e as condições de acesso variam conforme o plano escolhido. Consulte a comparação dos planos para entender o que está disponível em cada opção.",
+    },
+    {
+      q: "Como funcionam os descontos nos produtos?",
+      a: "Os produtos têm condições de compra vinculadas aos planos do clube. Na seção de produtos, selecione Silver, Gold ou Diamond para consultar as opções e as condições correspondentes. Confira o preço e a disponibilidade de cada item antes de concluir a compra.",
+    },
+    {
+      q: "Qual a diferença entre Silver, Gold e Diamond?",
+      a: "Os planos possuem diferentes limites e condições de acesso aos produtos e benefícios. Compare as informações apresentadas em cada plano e escolha a opção mais adequada à sua rotina de compras e aos benefícios que pretende utilizar.",
+    },
+    {
+      q: "Cursos e mentorias estão incluídos em todos os planos?",
+      a: "A disponibilidade de cursos e as condições das mentorias devem ser consultadas nos benefícios de cada plano. Uma condição especial ou desconto em mentoria não significa que ela esteja incluída na mensalidade. Confira as informações do conteúdo ou serviço antes de contratar.",
+    },
+  ] as { q: string; a: string }[],
 };
 
 export const finalCta = {
   titleLines: ["Dono do seu talento."],
   titlePlain: "Parte",
   titleAccent: "de algo maior.",
-  text: "Benefícios para o profissional. Vantagens para o negócio.",
-  cta: { label: "Quero fazer parte do clube", href: "#planos" },
+  text: "Conheça os planos e encontre as vantagens que fazem sentido para você e sua barbearia.",
+  cta: { label: "Escolher meu plano", href: "#planos" },
   left: ["Mais barbeiros", "Mais barbearias", "Mais histórias"],
   right: ["Pessoas", "Produtos", "Conhecimento", "Barbearias", "Mais fortes"],
 };
