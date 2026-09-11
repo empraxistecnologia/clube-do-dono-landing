@@ -87,12 +87,11 @@ export const videos = {
   text: "Veja os vídeos e entenda como aproveitar os benefícios do Clube do Dono.",
   /** Seis posições configuráveis. Preencha url/poster/source quando os arquivos existirem. */
   items: [
-    { id: "v1", title: "Conheça o clube", url: null, poster: null, source: null },
-    { id: "v2", title: "Benefícios na prática", url: null, poster: null, source: null },
-    { id: "v3", title: "Como fazer parte", url: null, poster: null, source: null },
-    { id: "v4", title: "Produtos com desconto", url: null, poster: null, source: null },
-    { id: "v5", title: "Cursos e mentorias", url: null, poster: null, source: null },
-    { id: "v6", title: "Visão de dono", url: null, poster: null, source: null },
+    { id: "v1", title: "Conheça o Clube do Dono", url: "https://gessomt.app.br/videos/IMG_0263.mp4", poster: null, source: "file" },
+    { id: "v2", title: "O clube na prática", url: "https://gessomt.app.br/videos/video01.mp4", poster: null, source: "file" },
+    { id: "v3", title: "Vantagens para o seu negócio", url: "https://gessomt.app.br/videos/video02.mp4", poster: null, source: "file" },
+    { id: "v4", title: "Jhonatan: funciona de verdade", url: "https://gessomt.app.br/videos/video-jhonatan-funciona1.mp4", poster: null, source: "file" },
+    { id: "v5", title: "Landim: funciona de verdade", url: "https://gessomt.app.br/videos/video-landim-funciona2.mp4", poster: null, source: "file" },
   ] as ClubVideo[],
 };
 
@@ -161,11 +160,14 @@ export const products = {
 export type Plan = {
   id: PlanId;
   name: string;
+  tagline: string;
   limit: string;
   limitNote: string;
+  highlight: string;
   price: string;
   period: string;
   benefits: string[];
+  featured?: boolean;
   /** Link de assinatura existente. */
   checkoutUrl: string | null;
   cta: string;
@@ -181,44 +183,57 @@ export const plans = {
     {
       id: "silver",
       name: "Silver",
+      tagline: "Perfeito para começar",
       limit: "50",
-      limitNote: "produtos/mês com condições do clube",
+      limitNote: "produtos/mês",
+      highlight: "25% de desconto em eventos",
       price: "R$ 49,99",
       period: "/mês",
-      benefits: ["Acesso ao catálogo com desconto", "Comunidade do clube"],
-      checkoutUrl: null,
-      cta: "Escolher Silver",
+      benefits: [
+        "Suporte prioritário",
+        "Acesso à comunidade exclusiva",
+        "Catálogo com produtos premium",
+      ],
+      checkoutUrl: "https://clubedodono.com/plan-checkout?plan=silver",
+      cta: "Assinar Silver",
     },
     {
       id: "gold",
       name: "Gold",
+      tagline: "O mais popular",
       limit: "100",
-      limitNote: "produtos/mês com condições do clube",
+      limitNote: "produtos/mês",
+      highlight: "50% de desconto em eventos",
       price: "R$ 90,00",
       period: "/mês",
+      featured: true,
       benefits: [
-        "Acesso ao catálogo com desconto",
-        "Comunidade do clube",
-        "Condições especiais em mentorias",
+        "Suporte VIP 24/7",
+        "Acesso antecipado a lançamentos",
+        "Consultoria mensal gratuita",
+        "Descontos em mentorias 11 Legados",
       ],
-      checkoutUrl: null,
-      cta: "Escolher Gold",
+      checkoutUrl: "https://clubedodono.com/plan-checkout?plan=gold",
+      cta: "Assinar Gold",
     },
     {
       id: "diamond",
       name: "Diamond",
-      limit: "Produtos",
-      limitNote: "ilimitados com condições do clube",
+      tagline: "Máximo benefício",
+      limit: "Ilimitado",
+      limitNote: "produtos/mês",
+      highlight: "Entrada GRATUITA em eventos",
       price: "R$ 190,00",
       period: "/mês",
       benefits: [
-        "Acesso ao catálogo com desconto",
-        "Comunidade do clube",
-        "Condições especiais em mentorias",
-        "Acesso aos cursos disponíveis",
+        "50% de desconto em cursos práticos",
+        "Gerente de conta dedicado",
+        "Produtos exclusivos Diamond",
+        "Workshops VIP trimestrais",
+        "Network com top barbeiros",
       ],
-      checkoutUrl: null,
-      cta: "Escolher Diamond",
+      checkoutUrl: "https://clubedodono.com/plan-checkout?plan=diamond",
+      cta: "Assinar Diamond",
     },
   ] as Plan[],
 };
