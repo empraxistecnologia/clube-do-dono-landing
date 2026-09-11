@@ -137,9 +137,9 @@ export function MembershipPlans() {
                       {plan.tagline}
                     </span>
                   )}
-                  <p className="display text-3xl tracking-[0.06em] text-gold">{plan.name}</p>
+                  <MemberCard plan={plan} />
                   {!plan.featured && (
-                    <p className="mt-2 text-[0.9rem] text-ivory/55">{plan.tagline}</p>
+                    <p className="mt-4 text-[0.9rem] text-ivory/55">{plan.tagline}</p>
                   )}
                 </div>
 
