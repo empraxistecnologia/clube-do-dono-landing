@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { brand, loginUrl, nav } from "@/content/club";
+import { brand, nav } from "@/content/club";
 import { Wordmark } from "./Monogram";
 
 export function Header() {
@@ -70,10 +70,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 text-ivory transition-[background-color,border-color,backdrop-filter] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b text-ivory transition-[background-color,border-color,box-shadow] duration-500 ${
         scrolled || open
-          ? "border-b border-ivory/12 bg-ink/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+          ? "border-ivory/12 bg-ink/95 shadow-[0_10px_30px_-24px_rgba(0,0,0,0.9)] backdrop-blur-md"
+          : "border-ivory/10 bg-ink"
       }`}
     >
       <div className="shell flex h-[76px] items-center gap-6 lg:h-[88px]">
@@ -100,21 +100,9 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-5 lg:ml-10">
-          {loginUrl ? (
-            <a
-              href={loginUrl}
-              className="link-underline hidden text-[0.95rem] text-ivory/75 transition-colors hover:text-gold sm:block"
-            >
-              Entrar
-            </a>
-          ) : (
-            <span className="hidden text-[0.95rem] text-ivory/40 sm:block" title="Link de acesso pendente">
-              Entrar
-            </span>
-          )}
           <a
             href="#planos"
-            className="hidden items-center gap-2 rounded-sm border border-gold px-5 py-2.5 text-[0.875rem] font-medium text-gold transition-colors hover:bg-gold hover:text-ink sm:inline-flex"
+            className="hidden items-center gap-2 rounded-xl bg-gold px-6 py-3 text-[0.9rem] font-semibold text-ink transition-colors duration-300 hover:bg-ink hover:text-gold hover:ring-1 hover:ring-gold sm:inline-flex"
           >
             Fazer parte do clube <ArrowUpRight className="h-4 w-4" />
           </a>
@@ -146,19 +134,10 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            {loginUrl && (
-              <a
-                href={loginUrl}
-                onClick={() => setOpen(false)}
-                className="border-b border-ivory/10 py-4 text-base text-ivory/85"
-              >
-                Entrar
-              </a>
-            )}
             <a
               href="#planos"
               onClick={() => setOpen(false)}
-              className="mt-6 mb-4 inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-5 py-3.5 text-base font-medium text-ink"
+              className="mt-6 mb-4 inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3.5 text-base font-semibold text-ink"
             >
               Fazer parte do clube <ArrowUpRight className="h-4 w-4" />
             </a>

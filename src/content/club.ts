@@ -1,4 +1,6 @@
 import heroChair from "@/assets/hero-chair.jpg";
+import heroShop from "@/assets/hero-shop.jpg";
+import heroTools from "@/assets/hero-tools.jpg";
 import productClipper from "@/assets/product-clipper.jpg";
 import productPomade from "@/assets/product-pomade.jpg";
 import productScissors from "@/assets/product-scissors.jpg";
@@ -37,6 +39,12 @@ export const hero = {
   secondaryCta: { label: "Ver como o clube funciona", href: "#videos" },
   support: "Benefícios para o profissional. Vantagens para o negócio.",
   image: heroChair,
+  /** Carrossel de fundo do hero — adicione ou troque imagens aqui. */
+  images: [
+    { src: heroChair, alt: "Cadeira de barbeiro clássica em ambiente escuro", position: "68% center" },
+    { src: heroShop, alt: "Interior de barbearia premium com detalhes em dourado", position: "60% center" },
+    { src: heroTools, alt: "Ferramentas de barbeiro sobre couro escuro", position: "55% center" },
+  ],
   caption: ["Barbeiros", "Donos de barbearia", "Juntos mais fortes"],
 };
 
