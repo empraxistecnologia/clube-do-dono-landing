@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Check, X } from "lucide-react";
+import { ArrowUpRight, Check, Gift, X } from "lucide-react";
 import { plans, type Plan } from "@/content/club";
 import { Monogram } from "./Monogram";
 import { Reveal } from "./Reveal";
@@ -103,42 +103,67 @@ export function MembershipPlans() {
         </div>
 
         <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_auto] lg:gap-14">
-          <ul className="grid gap-6 sm:grid-cols-3">
+          <ul className="grid gap-6 sm:grid-cols-3 sm:items-stretch">
             {plans.items.map((plan, i) => (
               <Reveal
                 as="li"
                 key={plan.id}
                 delay={i * 90}
-                className={`plan-card flex flex-col rounded-sm border p-6 ${
-                  plan.id === "gold" ? "border-gold/55 bg-ivory/[0.05]" : "border-ivory/12"
+                className={`plan-card sheen relative flex flex-col overflow-hidden rounded-3xl border p-7 ${
+                  plan.featured
+                    ? "border-gold/60 bg-gradient-to-b from-gold/[0.12] via-ivory/[0.04] to-transparent sm:-mt-4 sm:pb-9 shadow-[0_30px_70px_-45px_rgba(212,175,55,0.9)]"
+                    : "border-ivory/12 bg-ivory/[0.02]"
                 }`}
               >
-                <MemberCard plan={plan} />
+                {plan.featured && (
+                  <span className="absolute top-5 right-5 rounded-full bg-gold px-3 py-1 text-[0.62rem] font-semibold tracking-[0.18em] text-ink uppercase">
+                    {plan.tagline}
+                  </span>
+                )}
+
+                <div className="text-center">
+                  <p className="display text-3xl tracking-[0.06em] text-gold">{plan.name}</p>
+                  {!plan.featured && (
+                    <p className="mt-2 text-[0.9rem] text-ivory/55">{plan.tagline}</p>
+                  )}
+                </div>
 
                 <div className="mt-7 text-center">
-                  <p className="font-serif text-5xl leading-none italic text-ivory">{plan.limit}</p>
-                  <p className="mx-auto mt-2 max-w-[18ch] text-[0.78rem] leading-relaxed tracking-[0.12em] text-ivory/55 uppercase">
-                    {plan.limitNote}
+                  <p className="display text-[clamp(3rem,7vw,4.5rem)] leading-none text-gold">
+                    {plan.limit}
                   </p>
-                  <p className="mt-5 text-2xl font-semibold text-gold">
-                    {plan.price}
-                    <span className="text-base font-normal text-ivory/60">{plan.period}</span>
+                  <p className="mt-2 text-[0.8rem] tracking-[0.16em] text-ivory/55 uppercase">
+                    {plan.limitNote}
                   </p>
                 </div>
 
-                <ul className="mt-7 flex-1 space-y-2.5 border-t border-ivory/12 pt-6">
+                <p className="mt-7 flex items-center justify-center gap-2.5 rounded-2xl border border-gold/25 bg-gold/[0.07] px-4 py-3 text-center text-[0.9rem] font-semibold text-ivory">
+                  <Gift className="h-4 w-4 shrink-0 text-gold" />
+                  {plan.highlight}
+                </p>
+
+                <ul className="mt-7 flex-1 space-y-3">
                   {plan.benefits.map((b) => (
-                    <li key={b} className="flex gap-2.5 text-[0.95rem] leading-relaxed text-ivory/75">
+                    <li key={b} className="flex gap-2.5 text-[0.95rem] leading-relaxed text-ivory/80">
                       <Check className="mt-1 h-4 w-4 shrink-0 text-gold" />
                       {b}
                     </li>
                   ))}
                 </ul>
 
+                <p className="mt-8 border-t border-ivory/12 pt-6 text-center text-2xl font-semibold text-gold">
+                  {plan.price}
+                  <span className="text-base font-normal text-ivory/60">{plan.period}</span>
+                </p>
+
                 {plan.checkoutUrl ? (
                   <a
                     href={plan.checkoutUrl}
-                    className="mt-7 inline-flex items-center justify-center gap-2 rounded-sm border border-gold px-4 py-3.5 text-[0.95rem] font-medium text-gold transition-colors duration-200 hover:bg-gold hover:text-ink"
+                    className={`btn-shine mt-5 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-[0.95rem] font-semibold ${
+                      plan.featured
+                        ? "bg-gold text-ink hover:bg-ink hover:text-gold ring-1 ring-gold"
+                        : "border border-gold/60 text-gold hover:bg-gold hover:text-ink"
+                    }`}
                   >
                     {plan.cta} <ArrowUpRight className="h-4 w-4" />
                   </a>
@@ -146,7 +171,7 @@ export function MembershipPlans() {
                   <button
                     type="button"
                     onClick={() => setDetail(plan)}
-                    className="mt-7 inline-flex items-center justify-center gap-2 rounded-sm border border-ivory/25 px-4 py-3.5 text-[0.95rem] font-medium text-ivory/80 transition-colors duration-200 hover:border-gold hover:text-gold"
+                    className="btn-shine mt-5 inline-flex items-center justify-center gap-2 rounded-full border border-ivory/25 px-5 py-3.5 text-[0.95rem] font-semibold text-ivory/80 hover:border-gold hover:text-gold"
                   >
                     {plan.cta} <ArrowUpRight className="h-4 w-4" />
                   </button>
