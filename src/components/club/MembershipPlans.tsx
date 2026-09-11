@@ -95,13 +95,12 @@ export function MembershipPlans() {
                     : "border-ivory/12 bg-ivory/[0.02]"
                 }`}
               >
-                {plan.featured && (
-                  <span className="absolute top-5 right-5 rounded-full bg-gold px-3 py-1 text-[0.62rem] font-semibold tracking-[0.18em] text-ink uppercase">
-                    {plan.tagline}
-                  </span>
-                )}
-
                 <div className="text-center">
+                  {plan.featured && (
+                    <span className="mb-4 inline-block rounded-full bg-gold px-3.5 py-1 text-[0.62rem] font-semibold tracking-[0.18em] text-ink uppercase">
+                      {plan.tagline}
+                    </span>
+                  )}
                   <p className="display text-3xl tracking-[0.06em] text-gold">{plan.name}</p>
                   {!plan.featured && (
                     <p className="mt-2 text-[0.9rem] text-ivory/55">{plan.tagline}</p>
