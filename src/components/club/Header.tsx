@@ -100,21 +100,9 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-5 lg:ml-10">
-          {loginUrl ? (
-            <a
-              href={loginUrl}
-              className="link-underline hidden text-[0.95rem] text-ivory/75 transition-colors hover:text-gold sm:block"
-            >
-              Entrar
-            </a>
-          ) : (
-            <span className="hidden text-[0.95rem] text-ivory/40 sm:block" title="Link de acesso pendente">
-              Entrar
-            </span>
-          )}
           <a
             href="#planos"
-            className="hidden items-center gap-2 rounded-sm border border-gold px-5 py-2.5 text-[0.875rem] font-medium text-gold transition-colors hover:bg-gold hover:text-ink sm:inline-flex"
+            className="hidden items-center gap-2 rounded-xl bg-gold px-6 py-3 text-[0.9rem] font-semibold text-ink transition-colors duration-300 hover:bg-ink hover:text-gold hover:ring-1 hover:ring-gold sm:inline-flex"
           >
             Fazer parte do clube <ArrowUpRight className="h-4 w-4" />
           </a>
