@@ -80,7 +80,7 @@ function VideoSlide({
             controls
             autoPlay
             playsInline
-            preload="none"
+            preload="metadata"
             className="absolute inset-0 h-full w-full bg-black object-cover"
           />
         )}
