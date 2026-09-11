@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { videos, type ClubVideo } from "@/content/club";
 import { Monogram } from "./Monogram";
 
