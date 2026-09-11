@@ -62,7 +62,18 @@ function VideoSlide({
             className="absolute inset-0 h-full w-full object-cover opacity-85"
           />
         )}
-        {!video.poster && !active && (
+        {!video.poster && !active && file && video.url && (
+          <video
+            src={`${video.url}#t=0.1`}
+            muted
+            playsInline
+            preload="metadata"
+            tabIndex={-1}
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover opacity-90"
+          />
+        )}
+        {!video.poster && !active && !file && (
           <>
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-ink-soft to-ink" />
             <Monogram
@@ -80,7 +91,7 @@ function VideoSlide({
             controls
             autoPlay
             playsInline
-            preload="none"
+            preload="metadata"
             className="absolute inset-0 h-full w-full bg-black object-cover"
           />
         )}
