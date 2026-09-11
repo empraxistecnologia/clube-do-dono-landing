@@ -1,5 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
-import { education } from "@/content/club";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { education, whatsappUrl } from "@/content/club";
 import { Reveal } from "./Reveal";
 
 export function Education() {
