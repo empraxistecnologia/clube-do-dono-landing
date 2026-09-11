@@ -134,19 +134,10 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            {loginUrl && (
-              <a
-                href={loginUrl}
-                onClick={() => setOpen(false)}
-                className="border-b border-ivory/10 py-4 text-base text-ivory/85"
-              >
-                Entrar
-              </a>
-            )}
             <a
               href="#planos"
               onClick={() => setOpen(false)}
-              className="mt-6 mb-4 inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-5 py-3.5 text-base font-medium text-ink"
+              className="mt-6 mb-4 inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3.5 text-base font-semibold text-ink"
             >
               Fazer parte do clube <ArrowUpRight className="h-4 w-4" />
             </a>
