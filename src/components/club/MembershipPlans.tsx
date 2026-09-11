@@ -1,7 +1,43 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Check, Gift, X } from "lucide-react";
 import { plans, type Plan } from "@/content/club";
+import { Monogram } from "./Monogram";
 import { Reveal } from "./Reveal";
+
+const cardStyle: Record<Plan["id"], string> = {
+  silver: "card-silver",
+  gold: "card-gold",
+  diamond: "card-diamond",
+};
+
+function MemberCard({ plan, className = "" }: { plan: Plan; className?: string }) {
+  return (
+    <div
+      className={`member-card sheen relative aspect-[1.62/1] w-full overflow-hidden rounded-2xl p-4 ${cardStyle[plan.id]} ${className}`}
+    >
+      <div className="absolute inset-[3px] rounded-xl border border-current opacity-25" />
+      <div className="relative flex h-full flex-col justify-between">
+        <div className="flex items-start justify-between">
+          <span className="h-6 w-8 rounded-[4px] border border-current opacity-60" aria-hidden="true">
+            <span className="block h-1/2 w-full border-b border-current opacity-70" />
+          </span>
+          <span className="text-[0.55rem] font-semibold tracking-[0.28em] uppercase opacity-70">
+            Membro
+          </span>
+        </div>
+
+        <div className="flex flex-col items-center -mt-1">
+          <Monogram className="h-7 w-7 opacity-85" />
+          <p className="mt-1.5 text-[0.95rem] font-semibold tracking-[0.34em] uppercase">{plan.name}</p>
+        </div>
+
+        <p className="text-center text-[0.5rem] tracking-[0.3em] uppercase opacity-65">
+          Clube do Dono
+        </p>
+      </div>
+    </div>
+  );
+}
 
 function PlanDialog({ plan, onClose }: { plan: Plan; onClose: () => void }) {
   useEffect(() => {
