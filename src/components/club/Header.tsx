@@ -70,10 +70,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 text-ivory transition-[background-color,border-color,backdrop-filter] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b text-ivory transition-[background-color,border-color,box-shadow] duration-500 ${
         scrolled || open
-          ? "border-b border-ivory/12 bg-ink/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+          ? "border-ivory/12 bg-ink/95 shadow-[0_10px_30px_-24px_rgba(0,0,0,0.9)] backdrop-blur-md"
+          : "border-ivory/10 bg-ink"
       }`}
     >
       <div className="shell flex h-[76px] items-center gap-6 lg:h-[88px]">
