@@ -47,7 +47,6 @@ export const hero = {
   ],
   caption: ["Barbeiros", "Donos de barbearia", "Juntos mais fortes"],
 };
-};
 
 export const clubIntro = {
   title: ["Você domina o corte.", "Amplie suas possibilidades."],
