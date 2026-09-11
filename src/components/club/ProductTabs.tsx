@@ -59,7 +59,7 @@ export function ProductTabs() {
         : e.key === "End"
           ? TABS.length - 1
           : (index + (e.key === "ArrowRight" ? 1 : -1) + TABS.length) % TABS.length;
-    setPlan(TABS[next].id);
+    setPlan(TABS[next]?.id ?? "gold");
     refs.current[next]?.focus();
   };
 
