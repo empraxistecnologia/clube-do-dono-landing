@@ -46,11 +46,18 @@ export function Footer() {
 
       <div className="border-t border-ivory/10">
         <div className="shell flex flex-col gap-3 py-6 text-[0.8rem] text-ivory/45 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
-            <p>
-              © {year} {brand.name}. Todos os direitos reservados.
-            </p>
-            <p>
+          <p>
+            © {year} {brand.name}. Todos os direitos reservados.
+          </p>
+          <div className="flex flex-col gap-2 sm:ml-auto sm:items-end">
+            <div className="flex gap-5">
+            {footer.legal.map((l) => (
+              <a key={l.href} href={l.href} className="hover:text-gold">
+                {l.label}
+              </a>
+            ))}
+            </div>
+            <p className="sm:text-right">
               Site desenvolvido por{" "}
               <a
                 href="https://empraxis.com.br"
@@ -61,13 +68,6 @@ export function Footer() {
                 Empraxis Marketing
               </a>
             </p>
-          </div>
-          <div className="flex gap-5">
-            {footer.legal.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-gold">
-                {l.label}
-              </a>
-            ))}
           </div>
         </div>
       </div>
