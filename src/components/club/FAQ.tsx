@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
-import { faq } from "@/content/club";
+import { faq, whatsappUrl } from "@/content/club";
 
 export function FAQ() {
   const [open, setOpen] = useState<string | null>(faq.items[0]?.q ?? null);
@@ -10,20 +10,20 @@ export function FAQ() {
       <div className="shell">
         <p className="eyebrow border-b border-border pb-4 text-muted-foreground">06 &nbsp;/&nbsp; Dúvidas</p>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[0.7fr_1.6fr] lg:gap-20">
-          <div>
-            <h2 className="display text-[clamp(2.6rem,6vw,4.2rem)]">
-              {faq.title.map((l) => (
-                <span key={l} className="block">
-                  {l}
-                </span>
-              ))}
-            </h2>
-            <p className="mt-6 max-w-[24ch] border-l border-gold pl-4 text-[0.78rem] leading-relaxed tracking-[0.18em] text-muted-foreground uppercase">
-              {faq.subtitle}
-            </p>
-          </div>
+        <div className="mx-auto mt-16 max-w-[68rem] text-center">
+          <h2 className="display text-[clamp(2.8rem,6.4vw,5rem)]">
+            {faq.title.map((l) => (
+              <span key={l} className="block">
+                {l}
+              </span>
+            ))}
+          </h2>
+          <p className="mx-auto mt-6 max-w-[48ch] text-[0.82rem] leading-relaxed tracking-[0.18em] text-muted-foreground uppercase">
+            {faq.subtitle}
+          </p>
+        </div>
 
+        <div className="mx-auto mt-14 max-w-[76rem]">
           <ul className="border-t border-border">
             {faq.items.map((item, i) => {
               const isOpen = open === item.q;
@@ -58,6 +58,23 @@ export function FAQ() {
               );
             })}
           </ul>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#planos"
+              className="btn-shine inline-flex items-center rounded-full bg-gold px-8 py-4 text-[0.95rem] font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-gold"
+            >
+              Fazer parte do clube
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-shine inline-flex items-center rounded-full border border-ink px-8 py-4 text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-ivory"
+            >
+              Tirar dúvidas no WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>

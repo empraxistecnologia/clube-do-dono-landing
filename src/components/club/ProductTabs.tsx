@@ -150,22 +150,22 @@ export function ProductTabs() {
       <div className="shell">
         <p className="eyebrow border-b border-border pb-4 text-muted-foreground">03 &nbsp;/&nbsp; Produtos</p>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[0.85fr_1.5fr] lg:gap-20">
-          <div>
-            <h2 className="display text-[clamp(2.4rem,5.5vw,4rem)]">
-              {products.title.map((l) => (
-                <span key={l} className="block">
-                  {l}
-                </span>
-              ))}
-            </h2>
-            <p className="mt-6 max-w-[40ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
-              {products.text}
-            </p>
+        <div className="mx-auto mt-16 flex max-w-[68rem] flex-col items-center text-center">
+          <h2 className="display text-[clamp(2.8rem,6.4vw,5rem)]">
+            {products.title.map((l) => (
+              <span key={l} className="block">
+                {l}
+              </span>
+            ))}
+          </h2>
+          <p className="mx-auto mt-7 max-w-[60ch] text-[1.125rem] leading-relaxed text-muted-foreground">
+            {products.text}
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             {products.cta.href ? (
               <a
                 href={products.cta.href}
-                className="mt-9 inline-flex items-center gap-2 rounded-sm border border-ink px-6 py-3.5 text-[0.95rem] font-medium transition-colors hover:bg-ink hover:text-ivory"
+                className="btn-shine inline-flex items-center gap-2 rounded-full border border-ink px-7 py-3.5 text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-ivory"
               >
                 {products.cta.label} <ArrowUpRight className="h-4 w-4" />
               </a>
@@ -173,14 +173,21 @@ export function ProductTabs() {
               <button
                 type="button"
                 onClick={() => setOpenCatalog(true)}
-                className="mt-9 inline-flex items-center gap-2 rounded-sm border border-ink px-6 py-3.5 text-[0.95rem] font-medium transition-colors hover:bg-ink hover:text-ivory"
+                className="btn-shine inline-flex items-center gap-2 rounded-full border border-ink px-7 py-3.5 text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-ivory"
               >
                 {products.cta.label} <ArrowUpRight className="h-4 w-4" />
               </button>
             )}
+            <a
+              href="#planos"
+              className="btn-shine inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-gold"
+            >
+              Fazer parte do clube <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
+        </div>
 
-          <div>
+        <div className="mt-16">
             <div role="tablist" aria-label="Planos do catálogo" className="grid grid-cols-3 border border-border">
               {TABS.map((t, i) => (
                 <button
@@ -217,7 +224,7 @@ export function ProductTabs() {
               id={`panel-${plan}`}
               aria-labelledby={`tab-${plan}`}
               key={plan}
-              className="mt-6 grid gap-6 sm:grid-cols-2"
+              className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
             >
               {featured ? (
                 <>
@@ -266,7 +273,6 @@ export function ProductTabs() {
               )}
             </div>
           </div>
-        </div>
       </div>
 
       {openCatalog && <CatalogDialog plan={plan} list={list} onClose={() => setOpenCatalog(false)} />}

@@ -22,9 +22,10 @@ export const brand = {
 
 export const nav = [
   { label: "O clube", href: "#o-clube" },
-  { label: "Benefícios", href: "#produtos" },
   { label: "Vídeos", href: "#videos" },
+  { label: "Produtos", href: "#produtos" },
   { label: "Planos", href: "#planos" },
+  { label: "Dúvidas", href: "#duvidas" },
 ];
 
 /** Link para a área de login existente. */
