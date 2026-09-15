@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { brand, loginUrl, nav } from "@/content/club";
 import { Wordmark } from "./Monogram";
 
 export function Header() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+  const to = (hash: string) => (isHome ? hash : `/${hash}`);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
