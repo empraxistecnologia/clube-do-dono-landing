@@ -66,25 +66,31 @@ export const hero = {
 
 
 export const clubIntro = {
-  title: ["Você domina o corte.", "Amplie suas possibilidades."],
-  text: "Quem vive da barbearia faz escolhas todos os dias: o que comprar, onde investir e como evoluir. O Clube do Dono reúne benefícios para apoiar essas escolhas e valorizar quem está à frente do próprio trabalho.",
+  title: ["Você domina o corte."],
+  titleAccent: "Amplie suas possibilidades.",
+  text: "Quem vive da barbearia decide todo dia: o que comprar, onde investir, como crescer. O clube existe para facilitar essas escolhas.",
+  image: { src: heroShop, alt: "Barbearia com cadeiras e bancada de atendimento" },
   pillars: [
     {
       number: "01",
+      icon: "tag" as const,
       title: "Compre com vantagem",
-      text: "Acesse produtos com descontos e condições disponíveis no seu plano.",
+      text: "Produtos com descontos e condições do seu plano.",
     },
     {
       number: "02",
+      icon: "graduation" as const,
       title: "Invista no seu talento",
-      text: "Explore cursos e conheça mentorias com condições especiais para membros.",
+      text: "Cursos e mentorias com condições especiais para membros.",
     },
     {
       number: "03",
+      icon: "users" as const,
       title: "Faça parte do clube",
-      text: "Uma comunidade para barbeiros e donos de barbearia que levam a profissão e o negócio a sério.",
+      text: "Comunidade de barbeiros e donos que levam o negócio a sério.",
     },
   ],
+  marquee: ["Descontos em produtos", "Eventos e cursos", "Comunidade de donos"],
 };
 
 export type VideoSource = "file" | "youtube" | "vimeo";
