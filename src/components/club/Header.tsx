@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { brand, nav } from "@/content/club";
+import { brand, loginUrl, nav } from "@/content/club";
 import { Wordmark } from "./Monogram";
 
 export function Header() {
