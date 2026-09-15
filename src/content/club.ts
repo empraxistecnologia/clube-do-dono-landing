@@ -1,9 +1,6 @@
 import heroChair from "@/assets/hero-chair.jpg";
 import heroShop from "@/assets/hero-shop.jpg";
 import heroTools from "@/assets/hero-tools.jpg";
-import productClipper from "@/assets/product-clipper.jpg";
-import productPomade from "@/assets/product-pomade.jpg";
-import productScissors from "@/assets/product-scissors.jpg";
 import educationBw from "@/assets/education-bw.jpg";
 import logoOficial from "@/assets/logo-clube-do-dono.png";
 
