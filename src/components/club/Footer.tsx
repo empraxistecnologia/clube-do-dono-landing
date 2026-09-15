@@ -9,7 +9,7 @@ export function Footer() {
       <div className="shell flex flex-col gap-8 py-12 lg:flex-row lg:items-center lg:justify-between">
         <a href="#topo" aria-label={brand.name} className="flex items-center">
           {brand.logoSrc ? (
-            <img src={brand.logoSrc} alt={brand.name} width={180} height={36} className="h-9 w-auto" />
+            <img src={brand.logoSrc} alt={brand.name} width={64} height={64} className="h-14 w-auto" />
           ) : (
             <Wordmark />
           )}

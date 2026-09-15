@@ -5,6 +5,7 @@ import productClipper from "@/assets/product-clipper.jpg";
 import productPomade from "@/assets/product-pomade.jpg";
 import productScissors from "@/assets/product-scissors.jpg";
 import educationBw from "@/assets/education-bw.jpg";
+import logoOficial from "@/assets/logo-clube-do-dono.png";
 
 /**
  * Conteúdo central da landing page do Clube do Dono.
@@ -16,8 +17,7 @@ export type PlanId = "silver" | "gold" | "diamond";
 
 export const brand = {
   name: "Clube do Dono",
-  /** Substitua por um asset real do logo quando disponível. */
-  logoSrc: null as string | null,
+  logoSrc: logoOficial as string | null,
 };
 
 export const nav = [
