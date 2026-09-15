@@ -58,6 +58,23 @@ export function FAQ() {
               );
             })}
           </ul>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#planos"
+              className="btn-shine inline-flex items-center rounded-full bg-gold px-8 py-4 text-[0.95rem] font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-gold"
+            >
+              Fazer parte do clube
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-shine inline-flex items-center rounded-full border border-ink px-8 py-4 text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-ivory"
+            >
+              Tirar dúvidas no WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>
