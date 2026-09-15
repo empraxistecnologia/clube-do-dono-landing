@@ -7,6 +7,7 @@ const description =
   "Categorias de cookies usadas pelo Clube do Dono, base legal de cada uma, gerenciamento de preferências e cookies de terceiros.";
 
 export const Route = createFileRoute("/politica-de-cookies")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

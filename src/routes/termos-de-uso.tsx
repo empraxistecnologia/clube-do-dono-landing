@@ -7,6 +7,7 @@ const description =
   "Regras do Clube do Dono: objeto, planos e descontos máximos, conta, pagamento, renovação, cancelamento, condutas proibidas e foro.";
 
 export const Route = createFileRoute("/termos-de-uso")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

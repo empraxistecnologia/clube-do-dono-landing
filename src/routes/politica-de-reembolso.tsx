@@ -7,6 +7,7 @@ const description =
   "Arrependimento em 7 dias, cancelamento de planos mensal, semestral e anual e cálculo do Ajuste Proporcional de Benefícios no Clube do Dono.";
 
 export const Route = createFileRoute("/politica-de-reembolso")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },
