@@ -20,7 +20,7 @@ export function ClubBenefits() {
       <div className="shell relative">
         <p className="eyebrow border-b border-border pb-4 text-muted-foreground">01 &nbsp;/&nbsp; O clube</p>
 
-        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="mt-12">
           <Reveal>
             <h2 className="display text-[clamp(2.4rem,5vw,4rem)] leading-[0.98]">
               {clubIntro.title.map((l) => (
@@ -35,18 +35,6 @@ export function ClubBenefits() {
             <p className="mt-7 max-w-[44ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
               {clubIntro.text}
             </p>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <div className="group relative overflow-hidden rounded-3xl border border-gold/40">
-              <img
-                src={clubIntro.image.src}
-                alt={clubIntro.image.alt}
-                loading="lazy"
-                className="h-[320px] w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-[420px] lg:h-[480px]"
-              />
-              <div aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-gold/30" />
-            </div>
           </Reveal>
         </div>
 
