@@ -21,18 +21,18 @@ export function ClubBenefits() {
         <p className="eyebrow border-b border-border pb-4 text-muted-foreground">01 &nbsp;/&nbsp; O clube</p>
 
         <div className="mt-12">
-          <Reveal>
-            <h2 className="display text-[clamp(2.4rem,5vw,4rem)] leading-[0.98]">
+          <Reveal className="text-center">
+            <h2 className="display mx-auto max-w-[18ch] text-[clamp(3rem,7vw,5.6rem)] leading-[0.95]">
               {clubIntro.title.map((l) => (
                 <span key={l} className="block">
                   {l}
                 </span>
               ))}
-              <span className="mt-2 block font-serif text-[0.92em] font-normal italic tracking-tight text-gold normal-case">
+              <span className="mt-3 block font-serif text-[0.95em] font-normal italic tracking-tight text-gold normal-case">
                 {clubIntro.titleAccent}
               </span>
             </h2>
-            <p className="mt-7 max-w-[44ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-8 max-w-[52ch] text-[1.125rem] leading-relaxed text-muted-foreground">
               {clubIntro.text}
             </p>
           </Reveal>
