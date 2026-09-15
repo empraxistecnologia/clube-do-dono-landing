@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://clube-do-dono-landing.lovable.app/sitemap.xml

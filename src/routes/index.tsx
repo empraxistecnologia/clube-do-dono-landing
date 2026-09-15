@@ -17,6 +17,7 @@ const description =
   "Descontos em produtos, cursos, condições especiais em mentorias e uma comunidade para barbeiros e donos de barbearia.";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

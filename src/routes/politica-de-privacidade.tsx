@@ -7,6 +7,7 @@ const description =
   "Como o Clube do Dono trata dados pessoais: finalidades, bases legais da LGPD, compartilhamento, retenção em até 60 dias e direitos do titular.";
 
 export const Route = createFileRoute("/politica-de-privacidade")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },
