@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { brand, loginUrl, nav } from "@/content/club";
 import { Wordmark } from "./Monogram";
 
 export function Header() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+  const to = (hash: string) => (isHome ? hash : `/${hash}`);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -77,7 +81,7 @@ export function Header() {
       }`}
     >
       <div className="shell flex h-[76px] items-center gap-6 lg:h-[88px]">
-        <a href="#topo" className="flex min-w-0 shrink-0 items-center" aria-label={brand.name}>
+        <a href={to("#topo")} className="flex min-w-0 shrink-0 items-center" aria-label={brand.name}>
           {brand.logoSrc ? (
             <img src={brand.logoSrc} alt={brand.name} width={56} height={56} className="h-12 w-auto lg:h-14" />
           ) : (
@@ -89,7 +93,7 @@ export function Header() {
           {nav.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={to(item.href)}
               data-active={active === item.href}
               aria-current={active === item.href ? "true" : undefined}
               className="link-underline text-[0.95rem] text-ivory/75 transition-colors hover:text-gold data-[active=true]:text-gold"
@@ -109,7 +113,7 @@ export function Header() {
             </a>
           )}
           <a
-            href="#planos"
+            href={to("#planos")}
             className="hidden items-center gap-2 rounded-xl bg-gold px-6 py-3 text-[0.9rem] font-semibold text-ink transition-colors duration-300 hover:bg-ink hover:text-gold hover:ring-1 hover:ring-gold sm:inline-flex"
           >
             Fazer parte do clube <ArrowUpRight className="h-4 w-4" />
@@ -134,7 +138,7 @@ export function Header() {
             {nav.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={to(item.href)}
                 onClick={() => setOpen(false)}
                 data-active={active === item.href}
                 className="border-b border-ivory/10 py-4 text-base text-ivory/85 data-[active=true]:text-gold"
@@ -143,7 +147,7 @@ export function Header() {
               </a>
             ))}
             <a
-              href="#planos"
+              href={to("#planos")}
               onClick={() => setOpen(false)}
               className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3.5 text-base font-semibold text-ink"
             >
