@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
-import { faq } from "@/content/club";
+import { faq, whatsappUrl } from "@/content/club";
 
 export function FAQ() {
   const [open, setOpen] = useState<string | null>(faq.items[0]?.q ?? null);
