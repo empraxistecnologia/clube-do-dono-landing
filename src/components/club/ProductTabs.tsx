@@ -273,7 +273,6 @@ export function ProductTabs() {
               )}
             </div>
           </div>
-        </div>
       </div>
 
       {openCatalog && <CatalogDialog plan={plan} list={list} onClose={() => setOpenCatalog(false)} />}
