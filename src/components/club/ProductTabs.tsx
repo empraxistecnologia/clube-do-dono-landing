@@ -224,7 +224,7 @@ export function ProductTabs() {
               id={`panel-${plan}`}
               aria-labelledby={`tab-${plan}`}
               key={plan}
-              className="mt-6 grid gap-6 sm:grid-cols-2"
+              className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
             >
               {featured ? (
                 <>
