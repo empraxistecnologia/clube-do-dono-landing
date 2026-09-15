@@ -28,7 +28,7 @@ export const nav = [
 ];
 
 /** Link para a área de login existente. */
-export const loginUrl: string | null = null;
+export const loginUrl: string | null = "https://clubedodono.com/auth";
 
 export const hero = {
   eyebrow: "Clube de benefícios para barbeiros e donos de barbearia",
