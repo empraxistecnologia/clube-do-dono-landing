@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Clube do Dono" },
+      { title: "Clube do Dono — Clube de benefícios para barbeiros" },
       { name: "description", content: "Clube de benefícios para barbeiros e donos de barbearia." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

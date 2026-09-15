@@ -103,7 +103,7 @@ function CatalogDialog({
             <li key={p.id} className="flex gap-4 border-b border-border pb-6">
               <img
                 src={p.image}
-                alt=""
+                alt={`${p.name} — ${p.category}`}
                 loading="lazy"
                 className="h-24 w-24 shrink-0 rounded-sm object-cover"
               />

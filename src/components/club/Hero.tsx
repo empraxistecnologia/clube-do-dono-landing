@@ -34,12 +34,12 @@ export function Hero() {
       onBlurCapture={() => setPaused(false)}
     >
       {/* Carrossel de fotografia full-bleed */}
-      <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, i) => (
           <img
             key={slide.src}
             src={slide.src}
-            alt=""
+            alt={slide.alt}
             fetchPriority={i === 0 ? "high" : "low"}
             loading={i === 0 ? "eager" : "lazy"}
             decoding="async"
