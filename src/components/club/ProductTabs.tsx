@@ -13,15 +13,11 @@ const brl = (n: number) => n.toLocaleString("pt-BR", { style: "currency", curren
 
 function PriceLine({ product }: { product: Product }) {
   if (product.listPrice != null && product.memberPrice != null && product.listPrice > product.memberPrice) {
-    const off = Math.round((1 - product.memberPrice / product.listPrice) * 100);
-    const save = product.listPrice - product.memberPrice;
     return (
       <p className="mt-2 flex flex-wrap items-baseline gap-2 text-[0.9rem]">
         <span className="text-muted-foreground line-through">{brl(product.listPrice)}</span>
-        <span className="font-semibold">{brl(product.memberPrice)}</span>
-        <span className="text-gold">
-          −{off}% · economia de {brl(save)}
-        </span>
+        <span className="text-[1.05rem] font-semibold text-gold">{brl(product.memberPrice)}</span>
+        <span className="text-muted-foreground">preço de membro</span>
       </p>
     );
   }
