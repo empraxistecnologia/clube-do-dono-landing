@@ -145,10 +145,19 @@ export function Header() {
             <a
               href="#planos"
               onClick={() => setOpen(false)}
-              className="mt-6 mb-4 inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3.5 text-base font-semibold text-ink"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3.5 text-base font-semibold text-ink"
             >
               Fazer parte do clube <ArrowUpRight className="h-4 w-4" />
             </a>
+            {loginUrl && (
+              <a
+                href={loginUrl}
+                onClick={() => setOpen(false)}
+                className="mt-3 mb-4 inline-flex items-center justify-center gap-2 rounded-xl border border-ivory/25 px-5 py-3.5 text-base font-semibold text-ivory/85"
+              >
+                Entrar
+              </a>
+            )}
           </nav>
         </div>
       )}
