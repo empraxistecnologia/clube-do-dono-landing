@@ -83,7 +83,7 @@ export function Header() {
       <div className="shell flex h-[76px] items-center gap-6 lg:h-[88px]">
         <a href={to("#topo")} className="flex min-w-0 shrink-0 items-center" aria-label={brand.name}>
           {brand.logoSrc ? (
-            <img src={brand.logoSrc} alt={brand.name} width={56} height={56} className="h-12 w-auto lg:h-14" />
+            <img src={brand.logoSrc} alt={brand.name} width={80} height={80} className="h-16 w-auto lg:h-20" />
           ) : (
             <Wordmark />
           )}
