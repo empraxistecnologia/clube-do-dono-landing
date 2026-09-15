@@ -22,7 +22,7 @@ export function Hero() {
     return () => window.clearInterval(id);
   }, [slides.length, paused]);
 
-  const active = slides[index];
+  const active = slides[index] ?? slides[0]!;
 
   return (
     <section
