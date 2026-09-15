@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/club/LegalPage";
+import { company } from "@/content/company";
 
 const title = "Política de Privacidade — Clube do Dono";
 const description =
-  "Como o Clube do Dono coleta, usa, armazena e protege os dados pessoais de membros e visitantes, conforme a LGPD.";
+  "Como o Clube do Dono trata dados pessoais: finalidades, bases legais da LGPD, compartilhamento, retenção em até 60 dias e direitos do titular.";
 
 export const Route = createFileRoute("/politica-de-privacidade")({
   head: () => ({
@@ -22,90 +23,92 @@ export const Route = createFileRoute("/politica-de-privacidade")({
 function Page() {
   return (
     <LegalPage
-      title="Política de Privacidade"
-      intro="Esta política explica quais dados pessoais o Clube do Dono coleta, para que os utiliza, com quem os compartilha, por quanto tempo os guarda e quais são os seus direitos como titular, conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD)."
-      updatedAt="setembro de 2026"
+      title="Política de Privacidade e Proteção de Dados"
+      intro="Esta política explica como o Clube do Dono trata dados pessoais de visitantes e membros, com quais finalidades e bases legais, com quem compartilha, por quanto tempo guarda e quais direitos você pode exercer, conforme a Lei nº 13.709/2018 (LGPD)."
+      updatedAt={company.updatedAt}
       sections={[
         {
-          title: "1. Quem trata os seus dados",
+          title: "1. Quem somos",
           paragraphs: [
-            "O responsável pelo tratamento dos dados (controlador) é o Clube do Dono, que opera este site e a área de membros.",
-            "Dúvidas, pedidos e reclamações sobre privacidade podem ser enviados pelos canais oficiais de atendimento do clube, incluindo o WhatsApp disponível neste site.",
+            `O Clube do Dono é operado por ${company.legalName}, inscrita no CNPJ sob nº ${company.cnpj}, com endereço em ${company.address}.`,
+            `Para assuntos de privacidade e proteção de dados, o contato é ${company.privacyEmail}. Atendimento também pelo WhatsApp ${company.whatsapp}.`,
           ],
         },
         {
-          title: "2. Dados que coletamos",
+          title: "2. Compromisso com a privacidade",
           paragraphs: [
-            "Dados de cadastro: nome, e-mail, telefone, senha e, quando necessário para emissão fiscal, CPF/CNPJ e endereço.",
-            "Dados de assinatura e pagamento: plano contratado, histórico de cobranças, status da assinatura e confirmações enviadas pelo meio de pagamento. Não armazenamos o número completo do cartão — essa informação fica com o processador de pagamentos.",
-            "Dados de uso dos benefícios: compras com desconto de membro, inscrições em eventos, cursos, mentorias e participação na comunidade.",
-            "Dados de navegação: endereço IP, tipo de dispositivo e navegador, páginas acessadas e data/hora de acesso, coletados por cookies e tecnologias semelhantes.",
-            "Dados de atendimento: mensagens trocadas conosco por WhatsApp, e-mail ou formulários.",
+            "Tratamos dados pessoais de forma transparente, segura e compatível com as finalidades informadas. Não vendemos, alugamos nem comercializamos bases de dados pessoais.",
+            "O compartilhamento com terceiros ocorre apenas quando necessário para operar o Clube, cumprir obrigações legais, prevenir fraudes, processar pagamentos, entregar pedidos, prestar suporte ou mediante outra base legal aplicável.",
           ],
         },
         {
-          title: "3. Para que usamos os dados e com que base legal",
+          title: "3. Dados que podemos tratar",
           paragraphs: [
-            "Execução do contrato: criar e manter sua conta, processar a assinatura, liberar os benefícios do plano, dar suporte e resolver problemas.",
-            "Cumprimento de obrigação legal: emissão de documentos fiscais e guarda de registros exigidos pela legislação, inclusive registros de acesso previstos no Marco Civil da Internet.",
-            "Legítimo interesse: segurança do site e das contas, prevenção a fraudes, melhoria dos produtos e do conteúdo e análise agregada de uso.",
-            "Consentimento: envio de comunicações de marketing e uso de cookies não essenciais. Você pode retirar o consentimento a qualquer momento, sem prejuízo do acesso ao clube.",
+            "Dados cadastrais: nome, CPF ou CNPJ quando necessário, data de nascimento quando aplicável, telefone, e-mail e endereço.",
+            "Dados de conta: identificadores de usuário, plano contratado, histórico de assinatura, preferências e registros de autenticação.",
+            "Dados de compra e pagamento: pedidos, produtos, valores, descontos aplicados, situação do pagamento e identificadores do meio de pagamento. Dados completos de cartão podem ser tratados diretamente pelos provedores de pagamento.",
+            "Dados de atendimento: mensagens, solicitações, reclamações, registros de suporte e preferências de comunicação.",
+            "Dados técnicos e de navegação: endereço IP, data e hora de acesso, identificadores de dispositivo, navegador, páginas acessadas, eventos de segurança e cookies, conforme a Política de Cookies.",
+            "Dados de benefícios: preço de referência do produto, preço pago pelo membro e economia efetivamente utilizada, quando necessário para demonstrar os benefícios do plano e calcular eventual rescisão antecipada nos termos da Política de Reembolso.",
           ],
         },
         {
-          title: "4. Compartilhamento",
+          title: "4. Finalidades e bases legais",
           paragraphs: [
-            "Não vendemos dados pessoais e não os cedemos para terceiros usarem em campanhas próprias.",
-            "Compartilhamos apenas o necessário com prestadores que viabilizam a operação: meio de pagamento e antifraude, hospedagem e infraestrutura do site, e-mail e mensageria, ferramentas de atendimento e de análise de audiência, além de parceiros responsáveis pela entrega de eventos, cursos e mentorias contratados por você.",
-            "Também podemos compartilhar dados para cumprir obrigação legal, ordem judicial ou requisição de autoridade competente, e para defender nossos direitos.",
+            "Criar e manter a conta e a assinatura (cadastro, plano, autenticação) — execução de contrato e procedimentos preliminares.",
+            "Processar compras, pagamentos, entregas e reembolsos (pedido, pagamento, endereço) — execução de contrato e obrigação legal quando aplicável.",
+            "Prestar suporte e registrar solicitações (contato e histórico de atendimento) — execução de contrato e legítimo interesse, conforme o caso.",
+            "Prevenir fraude e abuso e proteger a plataforma (IP, dispositivo, eventos de segurança, transações) — legítimo interesse, exercício regular de direitos e obrigação legal quando aplicável.",
+            "Cumprir obrigações fiscais, contábeis e regulatórias (documentos e histórico transacional) — cumprimento de obrigação legal ou regulatória.",
+            "Enviar marketing e ofertas (contato e preferências) — consentimento ou outra base legal válida, sempre com direito de oposição e descadastro.",
+            "Mensurar uso do site e melhorar a experiência (cookies e eventos de navegação) — consentimento para cookies não necessários.",
           ],
         },
         {
-          title: "5. Transferência internacional",
+          title: "5. Compartilhamento de dados",
           paragraphs: [
-            "Alguns dos serviços que utilizamos, como hospedagem e ferramentas de e-mail e análise, podem armazenar dados em servidores fora do Brasil. Nesses casos, exigimos que o fornecedor adote garantias de proteção compatíveis com a LGPD.",
+            "Podemos compartilhar dados, no limite necessário, com prestadores de hospedagem e infraestrutura, processadores e instituições de pagamento, serviços de prevenção a fraude, logística e entrega, atendimento, comunicação, analytics, contabilidade, assessoria jurídica e autoridades públicas quando houver obrigação legal ou ordem válida.",
+            "Esses terceiros devem atuar conforme contratos, instruções, deveres de confidencialidade e a legislação aplicável.",
           ],
         },
         {
-          title: "6. Cookies",
+          title: "6. Transferências internacionais",
           paragraphs: [
-            "Usamos cookies essenciais, que mantêm a sessão e a segurança do site, e cookies opcionais de desempenho e marketing. O detalhamento está na Política de Cookies, e você pode gerenciar as preferências pelo seu navegador.",
+            "Alguns fornecedores de tecnologia podem armazenar ou processar dados fora do Brasil. Quando isso ocorrer, adotamos mecanismos compatíveis com a LGPD e a regulamentação aplicável, inclusive medidas contratuais e de segurança adequadas.",
           ],
         },
         {
-          title: "7. Por quanto tempo guardamos",
+          title: "7. Retenção e exclusão em até 60 dias",
           paragraphs: [
-            "Dados de conta: enquanto a assinatura estiver ativa e por até 5 anos após o encerramento, para fins de defesa em eventual discussão sobre a relação de consumo.",
-            "Dados fiscais e de pagamento: pelo prazo exigido pela legislação tributária.",
-            "Registros de acesso ao site: pelo prazo previsto no Marco Civil da Internet.",
-            "Dados de marketing: até a retirada do consentimento ou o pedido de descadastramento.",
-            "Encerrados esses prazos, os dados são excluídos ou anonimizados.",
+            "Após o encerramento definitivo da conta ou o término da finalidade de tratamento, e inexistindo outra base legal que autorize a conservação, os dados pessoais vinculados à conta e ao relacionamento comercial são eliminados ou anonimizados em até 60 (sessenta) dias, observados os limites técnicos razoáveis.",
+            "Esse prazo não se aplica a dados que precisem ser mantidos para cumprimento de obrigação legal ou regulatória, exercício regular de direitos em processo judicial, administrativo ou arbitral, prevenção e apuração de fraude ou atendimento de ordem de autoridade competente. Registros de acesso sujeitos ao art. 15 do Marco Civil da Internet são mantidos, sob sigilo e segurança, pelo prazo legal aplicável, atualmente de 6 (seis) meses.",
+            "Quando o titular pedir para não receber mais mensagens promocionais, interrompemos o envio de novas campanhas assim que a solicitação for processada. Pode ser mantido um registro mínimo de supressão, inclusive pseudonimizado, exclusivamente para evitar novo envio indevido.",
           ],
         },
         {
-          title: "8. Segurança",
+          title: "8. Direitos do titular",
           paragraphs: [
-            "Adotamos medidas técnicas e administrativas para proteger os dados contra acesso não autorizado, perda, alteração ou uso indevido, como conexão criptografada, controle de acesso restrito e uso de fornecedores reconhecidos de infraestrutura.",
-            "Se ocorrer um incidente de segurança com risco relevante aos titulares, comunicaremos os afetados e a Autoridade Nacional de Proteção de Dados (ANPD), conforme a lei.",
+            "Nos termos da LGPD, você pode solicitar: confirmação da existência de tratamento; acesso; correção; anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade; portabilidade; informação sobre compartilhamentos; informação sobre a possibilidade de não fornecer consentimento e suas consequências; revogação do consentimento; eliminação dos dados tratados com base em consentimento, ressalvadas as hipóteses legais de conservação; oposição e revisão de decisões automatizadas quando cabível.",
+            `Solicitações devem ser encaminhadas para ${company.privacyEmail}. Podemos pedir informações suficientes para confirmar a identidade do requerente e prevenir fraude.`,
           ],
         },
         {
-          title: "9. Seus direitos",
+          title: "9. Segurança",
           paragraphs: [
-            "Você pode solicitar a qualquer momento: confirmação da existência de tratamento; acesso aos seus dados; correção de dados incompletos ou desatualizados; anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade; portabilidade; informação sobre compartilhamentos; e revogação do consentimento.",
-            "Atendemos os pedidos nos prazos legais, após confirmar a identidade do solicitante. Alguns dados podem ser mantidos mesmo após o pedido de exclusão quando houver obrigação legal ou necessidade de defesa em processo.",
+            "Adotamos medidas técnicas e administrativas razoáveis para proteger os dados contra acessos não autorizados e situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou tratamento inadequado.",
+            "Nenhum ambiente é absolutamente imune a riscos; incidentes relevantes são tratados e comunicados às autoridades e aos titulares quando a legislação exigir.",
           ],
         },
         {
-          title: "10. Dados de crianças e adolescentes",
+          title: "10. Crianças e adolescentes",
           paragraphs: [
-            "O Clube do Dono é destinado a maiores de 18 anos. Não coletamos intencionalmente dados de menores; identificado esse caso, a conta é encerrada e os dados excluídos.",
+            "O Clube do Dono é destinado a pessoas com capacidade para contratar. Caso seja identificado tratamento de dados de criança ou adolescente em contexto que exija consentimento específico ou salvaguardas adicionais, serão observadas as regras da LGPD e demais normas aplicáveis.",
           ],
         },
         {
           title: "11. Alterações desta política",
           paragraphs: [
-            "Esta política pode ser atualizada para refletir mudanças legais ou operacionais. Mudanças relevantes serão avisadas pelo site ou por e-mail, e a data da última atualização fica indicada no topo desta página.",
+            "Esta política pode ser atualizada para refletir mudanças legais, operacionais ou tecnológicas. A versão vigente e a data de atualização permanecem disponíveis no site, e alterações materialmente relevantes são comunicadas por meio adequado.",
           ],
         },
       ]}
