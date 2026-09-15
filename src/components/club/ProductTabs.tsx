@@ -130,7 +130,38 @@ export function ProductTabs() {
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const list = useMemo(() => products.byPlan[plan], [plan]);
-  const [featured, ...rest] = list;
+
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [perView, setPerView] = useState(3);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    const read = () => setPerView(window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1);
+    read();
+    window.addEventListener("resize", read);
+    return () => window.removeEventListener("resize", read);
+  }, []);
+
+  useEffect(() => {
+    setPage(0);
+    trackRef.current?.scrollTo({ left: 0, behavior: "auto" });
+  }, [plan]);
+
+  const pageCount = Math.max(1, Math.ceil(list.length / perView));
+
+  const goToPage = (i: number) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" });
+    setPage(i);
+  };
+
+  const onScroll = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    const next = Math.round(el.scrollLeft / el.clientWidth);
+    setPage((cur) => (cur === next ? cur : next));
+  };
 
   const onKeyDown = (e: React.KeyboardEvent, index: number) => {
     if (e.key !== "ArrowRight" && e.key !== "ArrowLeft" && e.key !== "Home" && e.key !== "End") return;
@@ -219,55 +250,59 @@ export function ProductTabs() {
 
             <p className="mt-4 text-[0.85rem] text-muted-foreground">{products.planNote[plan]}</p>
 
-            <div
-              role="tabpanel"
-              id={`panel-${plan}`}
-              aria-labelledby={`tab-${plan}`}
-              key={plan}
-              className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              {featured ? (
+            <div role="tabpanel" id={`panel-${plan}`} aria-labelledby={`tab-${plan}`} key={plan} className="mt-8">
+              {list.length ? (
                 <>
-                  <Reveal className="sm:row-span-2">
-                    <div className="group overflow-hidden rounded-sm bg-ink">
-                      <img
-                        src={featured.image}
-                        alt={featured.name}
-                        loading="lazy"
-                        width={900}
-                        height={1200}
-                        className="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      />
-                    </div>
-                    <div className="mt-4">
-                      <p className="eyebrow text-muted-foreground">{featured.category}</p>
-                      <ProductLink product={featured} className="mt-1.5 block" />
-                      <PriceLine product={featured} />
-                    </div>
-                  </Reveal>
+                  <div
+                    ref={trackRef}
+                    onScroll={onScroll}
+                    className="-mx-2 flex snap-x snap-mandatory gap-0 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  >
+                    {list.map((p) => (
+                      <article
+                        key={p.id}
+                        className="w-full shrink-0 snap-start px-2 sm:w-1/2 lg:w-1/3"
+                      >
+                        <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card">
+                          <div className="overflow-hidden bg-ivory">
+                            <img
+                              src={p.image}
+                              alt={`${p.name} — ${p.category}`}
+                              loading="lazy"
+                              className="aspect-[4/3] w-full object-contain p-6 transition-transform duration-500 group-hover:scale-[1.04]"
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-6">
+                            <p className="eyebrow text-muted-foreground">{p.category}</p>
+                            <ProductLink product={p} className="mt-2 block" />
+                            <div className="mt-auto pt-3">
+                              <PriceLine product={p} />
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
 
-                  {rest.map((p, i) => (
-                    <Reveal key={p.id} delay={80 + i * 80}>
-                      <div className="group overflow-hidden rounded-sm bg-ink">
-                        <img
-                          src={p.image}
-                          alt={p.name}
-                          loading="lazy"
-                          width={900}
-                          height={600}
-                          className="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  {pageCount > 1 && (
+                    <div className="mt-8 flex items-center justify-center gap-3">
+                      {Array.from({ length: pageCount }).map((_, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          aria-label={`Ver produtos ${i * perView + 1} a ${Math.min((i + 1) * perView, list.length)}`}
+                          aria-current={i === page}
+                          onClick={() => goToPage(i)}
+                          className={`h-2.5 rounded-full transition-all duration-300 ${
+                            i === page ? "w-8 bg-gold" : "w-2.5 bg-border hover:bg-muted-foreground"
+                          }`}
                         />
-                      </div>
-                      <div className="mt-4">
-                        <p className="eyebrow text-muted-foreground">{p.category}</p>
-                        <ProductLink product={p} className="mt-1.5 block" />
-                        <PriceLine product={p} />
-                      </div>
-                    </Reveal>
-                  ))}
+                      ))}
+                    </div>
+                  )}
                 </>
               ) : (
-                <p className="rounded-sm border border-border p-8 text-[0.95rem] text-muted-foreground sm:col-span-2">
+                <p className="rounded-sm border border-border p-8 text-[0.95rem] text-muted-foreground">
                   Ainda não há produtos cadastrados para este plano.
                 </p>
               )}
