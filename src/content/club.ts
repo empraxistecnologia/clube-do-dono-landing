@@ -31,22 +31,41 @@ export const nav = [
 export const loginUrl: string | null = "https://clubedodono.com/auth";
 
 export const hero = {
-  eyebrow: "Clube de benefícios para barbeiros e donos de barbearia",
-  titleLines: ["Talento na cadeira.", "Visão de"],
-  titleAccent: "Dono.",
-  text: "Seu talento faz a diferença em cada atendimento. No Clube do Dono, você encontra descontos em produtos, oportunidades para aprender e vantagens para cuidar também do seu negócio.",
   primaryCta: { label: "Conhecer os planos", href: "#planos" },
   secondaryCta: { label: "Ver como o clube funciona", href: "#videos" },
-  support: "Benefícios para o profissional. Vantagens para o negócio.",
   image: heroChair,
-  /** Carrossel de fundo do hero — adicione ou troque imagens aqui. */
-  images: [
-    { src: heroChair, alt: "Cadeira de barbeiro clássica em ambiente escuro", position: "68% center" },
-    { src: heroShop, alt: "Interior de barbearia premium com detalhes em dourado", position: "60% center" },
-    { src: heroTools, alt: "Ferramentas de barbeiro sobre couro escuro", position: "55% center" },
+  /** Slider do topo: cada imagem carrega uma mensagem só. */
+  slides: [
+    {
+      src: heroChair,
+      alt: "Cadeira de barbeiro clássica em ambiente escuro",
+      position: "68% center",
+      eyebrow: "Clube de benefícios para barbeiros",
+      titleLines: ["Talento na cadeira.", "Visão de"],
+      titleAccent: "Dono.",
+      text: "Um clube feito para quem vive da barbearia.",
+    },
+    {
+      src: heroShop,
+      alt: "Interior de barbearia premium com detalhes em dourado",
+      position: "60% center",
+      eyebrow: "Produtos",
+      titleLines: ["Compre melhor.", "Lucre mais."],
+      titleAccent: null,
+      text: "Descontos em todo o catálogo do Clube, conforme o seu plano.",
+    },
+    {
+      src: heroTools,
+      alt: "Ferramentas de barbeiro sobre couro escuro",
+      position: "55% center",
+      eyebrow: "Educação e comunidade",
+      titleLines: ["Evolua com", "quem faz."],
+      titleAccent: null,
+      text: "Cursos e mentorias com condições exclusivas para membros.",
+    },
   ],
-  caption: ["Barbeiros", "Donos de barbearia", "Juntos mais fortes"],
 };
+
 
 export const clubIntro = {
   title: ["Você domina o corte.", "Amplie suas possibilidades."],
