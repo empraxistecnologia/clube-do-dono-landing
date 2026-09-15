@@ -16,8 +16,7 @@ export type PlanId = "silver" | "gold" | "diamond";
 
 export const brand = {
   name: "Clube do Dono",
-  /** Substitua por um asset real do logo quando disponível. */
-  logoSrc: null as string | null,
+  logoSrc: logoOficial as string | null,
 };
 
 export const nav = [
