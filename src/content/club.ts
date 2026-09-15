@@ -5,6 +5,7 @@ import productClipper from "@/assets/product-clipper.jpg";
 import productPomade from "@/assets/product-pomade.jpg";
 import productScissors from "@/assets/product-scissors.jpg";
 import educationBw from "@/assets/education-bw.jpg";
+import logoOficial from "@/assets/logo-clube-do-dono.png";
 
 /**
  * Conteúdo central da landing page do Clube do Dono.
