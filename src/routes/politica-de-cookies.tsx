@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/club/LegalPage";
+import { company } from "@/content/company";
 
 const title = "Política de Cookies — Clube do Dono";
 const description =
-  "Quais cookies o site do Clube do Dono utiliza, para que servem e como você pode gerenciá-los no navegador.";
+  "Categorias de cookies usadas pelo Clube do Dono, base legal de cada uma, gerenciamento de preferências e cookies de terceiros.";
 
 export const Route = createFileRoute("/politica-de-cookies")({
   head: () => ({
@@ -23,33 +24,41 @@ function Page() {
   return (
     <LegalPage
       title="Política de Cookies"
-      intro="Usamos cookies e tecnologias semelhantes para manter o site funcionando, lembrar preferências e entender como os visitantes navegam pelas páginas."
-      updatedAt="setembro de 2026"
+      intro="Esta política explica como o Clube do Dono utiliza cookies e tecnologias semelhantes para operar o site, preservar a segurança, lembrar preferências, medir desempenho e, quando autorizado, personalizar comunicação e publicidade."
+      updatedAt={company.updatedAt}
       sections={[
         {
           title: "1. O que são cookies",
           paragraphs: [
-            "Cookies são pequenos arquivos gravados no seu navegador quando você acessa um site. Eles permitem reconhecer o dispositivo em visitas seguintes e guardar informações úteis à navegação.",
+            "Cookies são pequenos arquivos ou identificadores armazenados ou acessados no dispositivo do usuário. Alguns são necessários para o funcionamento do site; outros são utilizados para analytics, funcionalidades adicionais ou publicidade.",
           ],
         },
         {
-          title: "2. Tipos de cookies que utilizamos",
+          title: "2. Categorias utilizadas",
           paragraphs: [
-            "Cookies necessários: essenciais para o funcionamento do site, login e segurança. Sem eles, áreas restritas e o processo de assinatura não funcionam corretamente.",
-            "Cookies de desempenho e análise: ajudam a entender quais páginas são mais acessadas e como melhorar a experiência.",
-            "Cookies de preferências: guardam escolhas feitas por você, como plano visualizado ou seção de produtos selecionada.",
+            "Necessários: login, segurança, carrinho, sessão, preferências indispensáveis e prevenção a fraude. São ativados por serem necessários à operação e à prestação do serviço, e duram a sessão ou o prazo tecnicamente necessário.",
+            "Funcionalidade: lembram preferências opcionais e melhoram recursos. Dependem de consentimento quando exigido e podem ser gerenciados pelo usuário.",
+            "Analytics e desempenho: ajudam a entender o uso, medir páginas e corrigir problemas. Não são ativados antes do consentimento quando dependerem dessa base legal.",
+            "Publicidade e marketing: mensuração de campanhas, segmentação e anúncios personalizados. Dependem de consentimento e permanecem desativados por padrão até a escolha do usuário.",
           ],
         },
         {
-          title: "3. Como gerenciar",
+          title: "3. Banner e gerenciamento de preferências",
           paragraphs: [
-            "Você pode bloquear ou apagar cookies nas configurações do seu navegador. O bloqueio de cookies necessários pode limitar funcionalidades do site, como o acesso à sua conta.",
+            "O banner de cookies oferece, com destaque equivalente, as opções “Aceitar todos”, “Rejeitar cookies não necessários” e “Gerenciar preferências”.",
+            "Cookies não necessários baseados em consentimento permanecem desativados até uma ação afirmativa do usuário. O consentimento pode ser revogado ou alterado a qualquer momento pelo painel de preferências ou pelas configurações do navegador.",
           ],
         },
         {
-          title: "4. Atualizações",
+          title: "4. Cookies de terceiros",
           paragraphs: [
-            "Esta política pode ser revisada sempre que houver mudança nas tecnologias utilizadas pelo site. A data da última atualização está indicada acima.",
+            "Serviços externos incorporados ao site podem instalar cookies próprios. A lista de fornecedores, nomes de cookies, finalidades e prazos é mantida atualizada no painel de preferências, considerando apenas as ferramentas efetivamente instaladas.",
+          ],
+        },
+        {
+          title: "5. Contato",
+          paragraphs: [
+            `Dúvidas sobre cookies e privacidade podem ser encaminhadas para ${company.privacyEmail}.`,
           ],
         },
       ]}
