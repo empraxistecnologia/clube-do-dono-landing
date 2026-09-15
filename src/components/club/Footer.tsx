@@ -19,7 +19,7 @@ export function Footer() {
         <div>
           <a href="/#topo" aria-label={brand.name} className="inline-flex items-center">
             {brand.logoSrc ? (
-              <img src={brand.logoSrc} alt={brand.name} width={64} height={64} className="h-14 w-auto" />
+              <img src={brand.logoSrc} alt={brand.name} width={96} height={96} className="h-20 w-auto sm:h-24" />
             ) : (
               <Wordmark />
             )}
