@@ -128,52 +128,64 @@ export type Product = {
   featured?: boolean;
 };
 
-const catalog: Product[] = [
-  {
-    id: "maquinas",
-    name: "Máquinas de corte",
-    category: "Equipamentos",
-    image: productClipper,
-    listPrice: null,
-    memberPrice: null,
-    href: null,
-    featured: true,
-  },
-  {
-    id: "pomadas",
-    name: "Pomadas e finalizadores",
-    category: "Cuidados",
-    image: productPomade,
-    listPrice: null,
-    memberPrice: null,
-    href: null,
-  },
-  {
-    id: "tesouras",
-    name: "Tesouras profissionais",
-    category: "Ferramentas",
-    image: productScissors,
-    listPrice: null,
-    memberPrice: null,
-    href: null,
-  },
+const silverCatalog: Product[] = [
+  { id: "silver-suporte-de-metal-para-lamina-wahl", name: "Suporte De Metal Para Lamina Wahl", category: "Acessórios", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/689a48098f969/s3s3dikenaxlwhzyg4qgcodqks43_thumb_280_o2kx6hm-wbdamankgxyxwq-689a483fddd72.jpg", listPrice: 45, memberPrice: 15, href: null },
+  { id: "silver-balm-para-barba-fox-120ml", name: "Balm Para Barba Fox 120ml", category: "Cuidados Pessoais", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688788558168a/balm-1-600x600-688788ab5063a.png", listPrice: 45, memberPrice: 15.25, href: null },
+  { id: "silver-tapete-emborrachado", name: "Tapete Emborrachado", category: "Acessórios", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688a6c9d36bf6/img-20230803-182404-1000-x-1000-pixel-688a6ceb85855.webp", listPrice: 65, memberPrice: 27, href: null },
+  { id: "silver-pente-dimil-blindado", name: "Pente Dimil Blindado", category: "Pentes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688bc289cf9d1/imagem-do-whatsapp-de-2025-07-31-a-s-15-19-27_4905e5e9-688bc2ab49a9a.jpg", listPrice: 45, memberPrice: 20, href: null },
+  { id: "silver-tesoura-fio-misto-6-tondeo", name: "Tesoura Fio Misto 6 Tondeo", category: "Tesouras", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/66e633cebbe82/primotesoura-66e633cef2a00.webp", listPrice: 400, memberPrice: 190, href: null },
+  { id: "silver-tesoura-fio-misto-6-5-tondeo", name: "Tesoura Fio Misto 6.5 Tondeo", category: "Tesouras", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/66e6340a6176a/primo55-66e6340a950df.webp", listPrice: 350, memberPrice: 171, href: null },
+  { id: "silver-kit-pente-disfarce-metal-1-16-e-3-16", name: "Kit Pente Disfarce Metal  1/16 E 3/16", category: "Pentes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/68b7566db3875/kit-pentes-disfarce-a-b-6a201be86d7d5.jpg", listPrice: 50, memberPrice: 25, href: null },
+  { id: "silver-po-descolorante-fox-500g", name: "Pó Descolorante Fox 500g", category: "Cuidados Pessoais", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/68890ccea2cdc/po-1-600x600-68890d392e75f.png", listPrice: 85, memberPrice: 43, href: null },
+  { id: "silver-capa-de-corte-de-cetim-com-ziper", name: "Capa De Corte De Cetim Com Ziper", category: "Capas", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688d06b52f347/capa-de-cetim-6a22b5c9d00f6.jpg", listPrice: 55, memberPrice: 30, href: null },
+  { id: "silver-navalhete-de-aco-inox-lm-elite-preto", name: "Navalhete De Aço Inox Lm Elite (Preto)", category: "Navalhetes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/69b00e95b6d55/whatsapp-image-2026-03-10-at-08-28-13-1-69b00ebc7ec86.jpeg", listPrice: 75, memberPrice: 45, href: null },
+  { id: "silver-navalhete-de-aco-cabo-de-madeira-fox-met", name: "Navalhete De Aço Cabo De Madeira Fox Metals", category: "Navalhetes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/69ab273d87736/whatsapp-image-2026-03-06-at-10-37-13-69ab2748aad16.jpeg", listPrice: 75, memberPrice: 45, href: null },
+  { id: "silver-maquina-shaver-andis-profoil-lithium", name: "Maquina Shaver Andis Profoil Lithium", category: "Máquinas", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/66e62e5aeaffa/maquinaprofissionaldeacabamentoebarbearprofoilshaver-66e62e5b55888.jpg", listPrice: 830, memberPrice: 530, href: null },
 ];
 
-const withPlan = (plan: PlanId): Product[] => catalog.map((p) => ({ ...p, id: `${plan}-${p.id}` }));
+const goldCatalog: Product[] = [
+  { id: "gold-dermaroller-system-0-50mm-540-microagulh", name: "Dermaroller System 0.50mm 540 Microagulhas", category: "Dermaroller", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/66e630297328d/dermarollerskintherapy540micro-agulhas0_5mm_10f157db-f9dd-4948-8486-dd9dee6f3ef6-66e63029aa111.jpg", listPrice: 45, memberPrice: 11.5, href: null },
+  { id: "gold-balm-para-barba-fox-120ml", name: "Balm Para Barba Fox 120ml", category: "Cuidados Pessoais", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688788558168a/balm-1-600x600-688788ab5063a.png", listPrice: 45, memberPrice: 12.5, href: null },
+  { id: "gold-tapete-emborrachado", name: "Tapete Emborrachado", category: "Acessórios", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688a6c9d36bf6/img-20230803-182404-1000-x-1000-pixel-688a6ceb85855.webp", listPrice: 65, memberPrice: 23, href: null },
+  { id: "gold-tesoura-fio-navalha-umi-7", name: "Tesoura Fio Navalha Umi 7´´", category: "Tesouras", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/68925151ba91a/d_nq_np_991559-mla83151685630_032025-o-689252116d7b4.webp", listPrice: 170, memberPrice: 65, href: null },
+  { id: "gold-gel-clinico-incolor-bag-5kg", name: "Gel Clinico Incolor Bag 5kg", category: "Cuidados Pessoais", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/687ea393a6cad/d_nq_np_893305-mlb51055872935_082022-o-gel-clinico-contato-condutor-ultrassom-incolor-bag-5kg-687ea40f56df1.webp", listPrice: 74.9, memberPrice: 29, href: null },
+  { id: "gold-tesoura-fio-misto-6-tondeo", name: "Tesoura Fio Misto 6 Tondeo", category: "Tesouras", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/66e633cebbe82/primotesoura-66e633cef2a00.webp", listPrice: 400, memberPrice: 160, href: null },
+  { id: "gold-gola-higienica", name: "Gola Higiênica", category: "Acessórios", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688905550eecb/whatsapp-image-2026-03-18-at-08-54-09-69baa07e200b0.jpeg", listPrice: 45, memberPrice: 19, href: null },
+  { id: "gold-kit-pente-disfarce-metal-1-16-e-3-16", name: "Kit Pente Disfarce Metal  1/16 E 3/16", category: "Pentes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/68b7566db3875/kit-pentes-disfarce-a-b-6a201be86d7d5.jpg", listPrice: 50, memberPrice: 22, href: null },
+  { id: "gold-capa-de-corte-de-cetim-com-ziper", name: "Capa De Corte De Cetim Com Ziper", category: "Capas", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688d06b52f347/capa-de-cetim-6a22b5c9d00f6.jpg", listPrice: 55, memberPrice: 25, href: null },
+  { id: "gold-maquina-shaver-andis-profoil-lithium", name: "Maquina Shaver Andis Profoil Lithium", category: "Máquinas", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/66e62e5aeaffa/maquinaprofissionaldeacabamentoebarbearprofoilshaver-66e62e5b55888.jpg", listPrice: 830, memberPrice: 390, href: null },
+  { id: "gold-navalhete-de-aco-inox-lm-elite-preto", name: "Navalhete De Aço Inox Lm Elite (Preto)", category: "Navalhetes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/69b00e95b6d55/whatsapp-image-2026-03-10-at-08-28-13-1-69b00ebc7ec86.jpeg", listPrice: 75, memberPrice: 40, href: null },
+  { id: "gold-navalhete-de-aco-cabo-de-madeira-fox-met", name: "Navalhete De Aço Cabo De Madeira Fox Metals", category: "Navalhetes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/69ab273d87736/whatsapp-image-2026-03-06-at-10-37-13-69ab2748aad16.jpeg", listPrice: 75, memberPrice: 40, href: null },
+];
+
+const diamondCatalog: Product[] = [
+  { id: "diamond-alavanca-de-regular-lamina-wahl", name: "Alavanca De Regular Lamina Wahl", category: "Acessórios", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/689a48ac03ce4/s3s3dikenaxlwhzyg4qgcodqks43_thumb_280_w7yahbh18hx5lqjpe7-2ng-689a490f4be48.jpg", listPrice: 60, memberPrice: 10, href: null },
+  { id: "diamond-dermaroller-system-0-50mm-540-microagulh", name: "Dermaroller System 0.50mm 540 Microagulhas", category: "Dermaroller", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/66e630297328d/dermarollerskintherapy540micro-agulhas0_5mm_10f157db-f9dd-4948-8486-dd9dee6f3ef6-66e63029aa111.jpg", listPrice: 45, memberPrice: 10.5, href: null },
+  { id: "diamond-balm-para-barba-fox-120ml", name: "Balm Para Barba Fox 120ml", category: "Cuidados Pessoais", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688788558168a/balm-1-600x600-688788ab5063a.png", listPrice: 45, memberPrice: 11.3, href: null },
+  { id: "diamond-agua-oxigenada-40-volumes-classe-a-900ml", name: "Agua Oxigenada 40 Volumes Classe A 900ml", category: "Cuidados Pessoais", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/693961d2c5d11/ox-1-693962c26c563.webp", listPrice: 45, memberPrice: 13, href: null },
+  { id: "diamond-pente-dimil-blindado", name: "Pente Dimil Blindado", category: "Pentes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/688bc289cf9d1/imagem-do-whatsapp-de-2025-07-31-a-s-15-19-27_4905e5e9-688bc2ab49a9a.jpg", listPrice: 45, memberPrice: 15, href: null },
+  { id: "diamond-tesoura-fio-navalha-umi-7", name: "Tesoura Fio Navalha Umi 7´´", category: "Tesouras", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/68925151ba91a/d_nq_np_991559-mla83151685630_032025-o-689252116d7b4.webp", listPrice: 170, memberPrice: 60, href: null },
+  { id: "diamond-kit-pente-disfarce-metal-1-16-e-3-16", name: "Kit Pente Disfarce Metal  1/16 E 3/16", category: "Pentes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/68b7566db3875/kit-pentes-disfarce-a-b-6a201be86d7d5.jpg", listPrice: 50, memberPrice: 18, href: null },
+  { id: "diamond-oil-wahl", name: "Oil Wahl", category: "Acessórios", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/68890b814381e/oleo-68890c141f289.png", listPrice: 55, memberPrice: 20, href: null },
+  { id: "diamond-tesoura-invertida-fio-desbaste-umi-7", name: "Tesoura Invertida Fio Desbaste Umi 7´´", category: "Tesouras", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/689252cdb15a6/13-6a230d7e6dbbb.jpg", listPrice: 150, memberPrice: 55, href: null },
+  { id: "diamond-navalhete-de-aco-cabo-de-madeira-fox-met", name: "Navalhete De Aço Cabo De Madeira Fox Metals", category: "Navalhetes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/69ab273d87736/whatsapp-image-2026-03-06-at-10-37-13-69ab2748aad16.jpeg", listPrice: 75, memberPrice: 35, href: null },
+  { id: "diamond-navalhete-de-aco-inox-lm-elite-preto", name: "Navalhete De Aço Inox Lm Elite (Preto)", category: "Navalhetes", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/69b00e95b6d55/whatsapp-image-2026-03-10-at-08-28-13-1-69b00ebc7ec86.jpeg", listPrice: 75, memberPrice: 35, href: null },
+  { id: "diamond-maquina-wahl-shaver-travel", name: "Maquina Wahl Shaver Travel", category: "Máquinas", image: "https://assets.sistemawbuy.com.br/arquivos/4a029bac346ff7c78f3aa5810ddd63fa/produtos/697261de86260/captura-de-tela_22-1-2026_135734_www-mercadolivre-com-br-6972663b18c1e.jpeg", listPrice: 250, memberPrice: 120, href: null },
+];
 
 export const products = {
   title: ["Quem é do clube", "compra com vantagem."],
-  text: "Da reposição do dia a dia às ferramentas de trabalho: explore os produtos e confira as condições disponíveis em cada plano.",
+  text: "Da reposição do dia a dia às ferramentas de trabalho: veja alguns dos produtos disponíveis em cada plano e o preço para membros.",
   cta: { label: "Explorar produtos e descontos", href: null as string | null },
   planNote: {
-    silver: "Condições do plano Silver.",
-    gold: "Condições do plano Gold.",
-    diamond: "Condições do plano Diamond.",
+    silver: "Plano Silver: até 15% de desconto em todo o catálogo do Clube.",
+    gold: "Plano Gold: até 40% de desconto em produtos selecionados.",
+    diamond: "Plano Diamond: produtos a preço de custo, indicado para quem quer revender.",
   } satisfies Record<PlanId, string>,
   byPlan: {
-    silver: withPlan("silver"),
-    gold: withPlan("gold"),
-    diamond: withPlan("diamond"),
+    silver: silverCatalog,
+    gold: goldCatalog,
+    diamond: diamondCatalog,
   } satisfies Record<PlanId, Product[]>,
 };
 
@@ -204,13 +216,13 @@ export const plans = {
       id: "silver",
       name: "Silver",
       tagline: "Perfeito para começar",
-      limit: "15%",
+      limit: "até 15%",
       limitNote: "de desconto em todos os produtos",
       highlight: "25% de desconto em eventos",
       price: "R$ 49,99",
       period: "/mês",
       benefits: [
-        "15% off em todo o catálogo do Clube",
+        "Até 15% off em todo o catálogo do Clube",
         "Suporte prioritário",
         "Acesso à comunidade exclusiva",
       ],
