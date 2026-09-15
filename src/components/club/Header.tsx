@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { brand, nav } from "@/content/club";
+import { brand, loginUrl, nav } from "@/content/club";
 import { Wordmark } from "./Monogram";
 
 export function Header() {
@@ -99,7 +99,15 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-5 lg:ml-10">
+        <div className="ml-auto flex items-center gap-3 lg:ml-10 lg:gap-4">
+          {loginUrl && (
+            <a
+              href={loginUrl}
+              className="hidden items-center gap-2 rounded-xl border border-ivory/25 px-5 py-2.5 text-[0.9rem] font-semibold text-ivory/85 transition-colors duration-300 hover:border-gold hover:text-gold sm:inline-flex"
+            >
+              Entrar
+            </a>
+          )}
           <a
             href="#planos"
             className="hidden items-center gap-2 rounded-xl bg-gold px-6 py-3 text-[0.9rem] font-semibold text-ink transition-colors duration-300 hover:bg-ink hover:text-gold hover:ring-1 hover:ring-gold sm:inline-flex"
@@ -137,10 +145,19 @@ export function Header() {
             <a
               href="#planos"
               onClick={() => setOpen(false)}
-              className="mt-6 mb-4 inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3.5 text-base font-semibold text-ink"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3.5 text-base font-semibold text-ink"
             >
               Fazer parte do clube <ArrowUpRight className="h-4 w-4" />
             </a>
+            {loginUrl && (
+              <a
+                href={loginUrl}
+                onClick={() => setOpen(false)}
+                className="mt-3 mb-4 inline-flex items-center justify-center gap-2 rounded-xl border border-ivory/25 px-5 py-3.5 text-base font-semibold text-ivory/85"
+              >
+                Entrar
+              </a>
+            )}
           </nav>
         </div>
       )}
