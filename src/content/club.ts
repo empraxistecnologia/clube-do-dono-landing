@@ -292,6 +292,23 @@ export const finalCta = {
 
 export const footer = {
   tagline: ["Barbeiros", "Donos de barbearia", "Juntos mais fortes"],
-  social: [] as { label: string; href: string }[],
-  legal: [] as { label: string; href: string }[],
+  about:
+    "O Clube do Dono é um clube de benefícios para barbeiros e donos de barbearia: produtos com condições especiais, cursos, mentorias e uma comunidade que leva a profissão a sério.",
+  /** Informe as URLs oficiais das redes sociais. */
+  social: [
+    { label: "Instagram", href: null as string | null },
+    { label: "Facebook", href: null as string | null },
+  ],
+  clubLinks: [
+    { label: "O clube", href: "/#o-clube" },
+    { label: "Benefícios", href: "/#produtos" },
+    { label: "Vídeos", href: "/#videos" },
+    { label: "Planos", href: "/#planos" },
+  ],
+  legal: [
+    { label: "Política de Privacidade", href: "/politica-de-privacidade" },
+    { label: "Termos de Uso", href: "/termos-de-uso" },
+    { label: "Política de Cookies", href: "/politica-de-cookies" },
+    { label: "Política de Reembolso", href: "/politica-de-reembolso" },
+  ],
 };
